@@ -12,7 +12,7 @@ function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={FavouriteScreen} />
+      <Tab.Screen name="Favourites" component={FavouriteScreen} />
     </Tab.Navigator>
   );
 }
