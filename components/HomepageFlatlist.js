@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import getLocations from "./Places";
 
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-  },
-];
+console.log(getLocations());
+
+/** Calls data, returns object of locations and their ID */
+let data = getLocations();
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.title}</Text>
+    <Text style={[styles.title, textColor]}>{item.name}</Text>
   </TouchableOpacity>
 );
 
@@ -26,13 +17,13 @@ const FlatListOut = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
+    const backgroundColor = "#dedede";
     const color = item.id === selectedId ? 'white' : 'black';
 
     return (
       <Item
         item={item}
-        onPress={() => alert("Hello!")}
+        onPress={() => alert(`${item.name}`)}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
       />
@@ -42,7 +33,7 @@ const FlatListOut = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={DATA}
+        data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
@@ -53,14 +44,14 @@ const FlatListOut = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    alignSelf: "flex-start",
+    //marginTop: StatusBar.currentHeight || 0,
+    marginTop: 3,
   },
   item: {
+    flex: 1,
     padding: 20,
-    marginVertical: 2,
-    marginHorizontal: 16,
+    marginVertical: 3,
+    marginHorizontal: 7,
   },
   title: {
     fontSize: 15,

@@ -1,1 +1,0 @@
-//Locations as an object.  Export the object and call it. will update

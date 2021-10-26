@@ -8,9 +8,8 @@ import HomepageFlatList from '../components/HomepageFlatlist';
 
 export default function HomeScreen() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1}}>
             <HomepageFlatList></HomepageFlatList>
-        <Text>Home!</Text>
       </View>
     );
   }
