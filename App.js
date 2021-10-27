@@ -30,7 +30,6 @@ function MyTabs() {
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="home" size={24} color="black" />
           ),
-          headerShown: false,
             }}
         name="Home" 
         component={HomeScreen} />     

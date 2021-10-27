@@ -17,9 +17,10 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 const FlatListOut = () => {
   const [selectedId, setSelectedId] = useState(null);
   const navigation = useNavigation();
+
   const renderItem = ({ item }) => {
     const backgroundColor = "#dedede";
-    const color = item.id === selectedId ? 'white' : 'black';
+    const color = 'black';
 
     return (
       <Item
@@ -45,7 +46,7 @@ const FlatListOut = () => {
 
 const styles = StyleSheet.create({
   container: {
-    //marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0,
     marginTop: 3,
   },
   item: {

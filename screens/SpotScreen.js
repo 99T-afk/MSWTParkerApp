@@ -12,4 +12,4 @@ export default function SpotScreen() {
             <Text>Hi!</Text>
       </View>
     );
-  }
+}
