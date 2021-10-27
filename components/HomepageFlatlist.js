@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 import getLocations from "./Places";
+import { useNavigation } from '@react-navigation/native';
 
 console.log(getLocations());
 
@@ -15,7 +16,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 
 const FlatListOut = () => {
   const [selectedId, setSelectedId] = useState(null);
-
+  const navigation = useNavigation();
   const renderItem = ({ item }) => {
     const backgroundColor = "#dedede";
     const color = item.id === selectedId ? 'white' : 'black';
@@ -23,7 +24,7 @@ const FlatListOut = () => {
     return (
       <Item
         item={item}
-        onPress={() => alert(`${item.name}`)}
+        onPress={() => navigation.navigate('SpotScreen')}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
       />
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 3,
     marginHorizontal: 7,
+    borderRadius: 4,
   },
   title: {
     fontSize: 15,

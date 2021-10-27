@@ -10,13 +10,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
+import SpotScreen from './screens/SpotScreen';
 import FavouriteScreen from './screens/FavouriteScreen';
 import { AntDesign } from '@expo/vector-icons'; 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
+const SpotStack = createNativeStackNavigator();
 
 function MyTabs() {
   return (
@@ -44,14 +47,31 @@ function MyTabs() {
   );
 }
 
+const StackNav = () => {
+  return(
+  <SpotStack.Navigator initialRouteName={{MyTabs}}>        
+        <SpotStack.Screen
+          name="Tab"
+          component={MyTabs}
+          options={{headerShown: false,marginTop: StatusBar.currentHeight || 0,}}
+        />
+        <SpotStack.Screen
+          name="SpotScreen"
+          component={SpotScreen}
+        />
+  </SpotStack.Navigator>
+  )
+}
+
 
 export default function App() {
   return (  
     <NavigationContainer>
-      <MyTabs />
+      <StackNav/>
     </NavigationContainer>
   );
 }
+
 
 /*
       <Image
