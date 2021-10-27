@@ -6,9 +6,8 @@
  * 
  */
 
-
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
@@ -17,6 +16,8 @@ import FavouriteScreen from './screens/FavouriteScreen';
 import { AntDesign } from '@expo/vector-icons'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Context } from "./components/Context.js";
+
 
 const Tab = createBottomTabNavigator();
 const SpotStack = createNativeStackNavigator();
@@ -64,10 +65,13 @@ const StackNav = () => {
 
 
 export default function App() {
+  const [context, setContext] = useState("default context value");
   return (  
-    <NavigationContainer>
-      <StackNav/>
-    </NavigationContainer>
+    <Context.Provider value={[context, setContext]}>
+      <NavigationContainer>
+        <StackNav/>
+      </NavigationContainer>
+    </Context.Provider>
   );
 }
 

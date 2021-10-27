@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import getLocations from "./Places";
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,6 +11,7 @@ let data = getLocations();
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
     <Text style={[styles.title, textColor]}>{item.name}</Text>
+    <Text style={[styles.smalltext, textColor]}>{item.distance}</Text>
   </TouchableOpacity>
 );
 
@@ -23,12 +24,16 @@ const FlatListOut = () => {
     const color = 'black';
 
     return (
+      <View>
       <Item
         item={item}
         onPress={() => navigation.navigate('SpotScreen')}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
+        
       />
+       </View>   
+      
     );
   };
 
@@ -51,13 +56,16 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    padding: 20,
+    padding: 15,
     marginVertical: 3,
     marginHorizontal: 7,
     borderRadius: 4,
   },
+  smalltext:{
+    fontSize: 12,
+  },
   title: {
-    fontSize: 15,
+    fontSize: 18,
   },
 });
 

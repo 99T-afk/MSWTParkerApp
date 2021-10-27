@@ -1,15 +1,19 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FlatList from '../components/HomepageFlatlist';
-import HomepageFlatList from '../components/HomepageFlatlist';
+import { Text, View, StyleSheet } from 'react-native';
+import WindCompass from '../components/WindCompass';
 
 
 export default function SpotScreen() {
     return (
-      <View style={{ flex: 1}}>
-            <Text>Hi!</Text>
+      <View style={styles.windComp}>
+            <WindCompass/>
       </View>
     );
 }
+
+const styles = StyleSheet.create({
+  windComp: {
+    width: "50%",
+    height: "50%",
+  }
+})
