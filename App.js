@@ -6,9 +6,8 @@
  * 
  */
 
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import SpotScreen from './screens/SpotScreen';
@@ -17,6 +16,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Context } from "./components/Context.js";
+import TopBar from './components/TopBar';
 
 
 const Tab = createBottomTabNavigator();
@@ -27,6 +27,7 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="home" size={24} color="black" />
@@ -58,6 +59,7 @@ const StackNav = () => {
         <SpotStack.Screen
           name="SpotScreen"
           component={SpotScreen}
+          options={{headerShown: false,marginTop: StatusBar.currentHeight || 0,}}
         />
   </SpotStack.Navigator>
   )
@@ -68,6 +70,9 @@ export default function App() {
   const [context, setContext] = useState("default context value");
   return (  
     <Context.Provider value={[context, setContext]}>
+      <View style={styles.topbar}>
+        <TopBar/>
+      </View>
       <NavigationContainer>
         <StackNav/>
       </NavigationContainer>
@@ -87,6 +92,9 @@ export default function App() {
 */
 
 const styles = StyleSheet.create({
+  topbar: {
+    marginTop: 30,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
