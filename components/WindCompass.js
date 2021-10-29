@@ -13,7 +13,7 @@ export default function WindCompass() {
     return (
       <View style={styles.back}>
           <Text style={styles.windTitle}>Wind:</Text>
-          <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{translateY:100-(compassSize / 2)},{ rotate: directData + "deg"},{translateX: 100-(compassSize / 2)}]}} />
+          <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{translateY:100 -(compassSize / 2)},{ rotate: directData + "deg"},{translateX: 100-(compassSize / 2)}]}} />
           <Text style={styles.windTextDirect}>{directData + "°"}</Text>      
           <Text style={styles.windTextSpeed}>{speedData + " mph"}</Text> 
       </View>

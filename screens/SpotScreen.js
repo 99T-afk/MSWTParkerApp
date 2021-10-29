@@ -14,12 +14,13 @@ import SpotScroll from '../components/SpotDayScroll';
 
 export default function SpotScreen() {
     return (
-      <View>  
+      <View>
+          <SpotScroll contentOffset={100,100}/>  
           <View style={styles.compass}>
             <WindCompass />
             <SwellCompass/>
           </View>
-          <SpotScroll contentOffset={100,100}/>
+          <Text></Text>
       </View>
     );
 }

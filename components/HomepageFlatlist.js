@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import getLocations from "./Places";
 import { useNavigation } from '@react-navigation/native';
+import { Context } from "../components/Context.js";
 
 console.log(getLocations());
 
@@ -18,6 +19,11 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 const FlatListOut = () => {
   const [selectedId, setSelectedId] = useState(null);
   const navigation = useNavigation();
+  const [context, setContext] = useContext(Context);
+
+  function OnPressHandle(){
+    
+  }
 
   const renderItem = ({ item }) => {
     const backgroundColor = "#dedede";

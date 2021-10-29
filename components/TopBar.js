@@ -4,23 +4,28 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default function TopBar(){
     return(
-        <View>
+        <View style={styles.container}>
             <Image style={styles.imageStyle} source={require("../assets/logo.png")} />
-            <AntDesign name="setting" size={15} style={styles.settingIcon}/>
+            <AntDesign name="setting" size={35} style={styles.settingIcon}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: "flex-start",
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
     imageStyle: {
-        width: 150,
-        height: 52,
+        width: 140,
+        height: 47,
         marginLeft: 10,
         padding: 2,
-        flexDirection: "row",
-        alignSelf: "flex-start",
     },
     settingIcon: {
-        alignSelf: "flex-end",
+        justifyContent: "space-between",
+        marginRight: "5%",
+        marginTop: "1%",
     }
 })

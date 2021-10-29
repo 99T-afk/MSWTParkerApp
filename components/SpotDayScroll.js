@@ -4,6 +4,8 @@ import { AntDesign } from '@expo/vector-icons';
 import MSWdata from "./MSWApi.json";
 
 const SpotScroll = () => {
+    //const [daySet, daySetChange] = useState(0);
+
     return(
         <View>
             <ScrollView style={styles.dayScroll} horizontal={true}>
