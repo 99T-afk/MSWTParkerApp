@@ -4,6 +4,11 @@
  * git pull       <-- gets latest on github
  * git push       <-- pushs changes (REMEMBER TO COMMIT FIRST)
  * 
+ * TODO:
+ * 
+ * Add weather icons to location places
+ * 
+ * 
  */
 
 import React, { useState } from 'react';
@@ -80,20 +85,9 @@ export default function App() {
   );
 }
 
-
-/*
-      <Image
-        style={styles.imageLogo}
-        source={{
-          uri: 'http://images.magicseaweed.com/news/311.jpg',
-        }}
-      />
-
-*/
-
 const styles = StyleSheet.create({
   topbar: {
-    marginTop: 30,
+    marginTop: StatusBar.currentHeight || 0,
   },
   container: {
     flex: 1,
@@ -107,3 +101,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   }
 });
+
+
+/*
+      <Image
+        style={styles.imageLogo}
+        source={{
+          uri: 'http://images.magicseaweed.com/news/311.jpg',
+        }}
+      />
+
+*/

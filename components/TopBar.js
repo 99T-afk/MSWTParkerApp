@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
     },
     imageStyle: {
         width: 140,
-        height: 47,
+        height: 48,
         marginLeft: 10,
         padding: 2,
     },
     settingIcon: {
         justifyContent: "space-between",
-        marginRight: "5%",
+        marginRight: "4%",
         marginTop: "1%",
     }
 })

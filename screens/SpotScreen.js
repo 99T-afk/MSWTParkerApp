@@ -13,6 +13,7 @@ import WindCompass from '../components/WindCompass';
 import SwellCompass from '../components/SwellCompass';
 import SpotScroll from '../components/SpotDayScroll';
 import { Context } from "../components/Context.js";
+import MSWdata from "../components/MSWApi.json";
 
 
 export default function SpotScreen() {
