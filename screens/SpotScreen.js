@@ -6,8 +6,7 @@
  */
 
 
-//import * as React from 'react';
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import WindCompass from '../components/WindCompass';
 import SwellCompass from '../components/SwellCompass';
@@ -18,14 +17,16 @@ import MSWdata from "../components/MSWApi.json";
 
 export default function SpotScreen() {
   const [context, setContext] = useContext(Context);
-  console.log(context);
+  const [daySet, daySetChange] = useState(4);
+  //console.log(context);
     return (
       <View>
-          <SpotScroll contentOffset={100,100}/>  
+        <Text style={styles.titleStyle}>{context.name}</Text>
           <View style={styles.compass}>
-            <WindCompass />
+            <WindCompass daySet={daySet}/>
             <SwellCompass/>
           </View>
+          <SpotScroll daySetChange={daySetChange}/>  
           <Text></Text>
       </View>
     );
@@ -41,6 +42,10 @@ const styles = StyleSheet.create({
     padding: 5,
     alignSelf:"center",
     alignContent:"flex-start",
-  }
+  },
+  titleStyle: {
+    fontSize: 25,
+    alignSelf:"center",
+  },
 
 })

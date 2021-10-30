@@ -5,11 +5,13 @@ import MSWdata from "./MSWApi.json";
 
 //let data = getLocations();
 //console.log(MSWdata[0]["wind"]["direction"]);
-let directData = MSWdata[0]["wind"]["direction"];
-let speedData = MSWdata[0]["wind"]["speed"];
+
 let compassSize = 80;
 
-export default function WindCompass() {
+export default function WindCompass(props) {
+    let directData = MSWdata[props.daySet]["wind"]["direction"];
+    let speedData = MSWdata[props.daySet]["wind"]["speed"];
+
     return (
       <View style={styles.back}>
           <Text style={styles.windTitle}>Wind:</Text>
