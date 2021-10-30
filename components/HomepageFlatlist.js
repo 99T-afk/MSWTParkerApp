@@ -4,7 +4,7 @@ import getLocations from "./Places";
 import { useNavigation } from '@react-navigation/native';
 import { Context } from "../components/Context.js";
 
-console.log(getLocations());
+//console.log(getLocations());
 
 /** Calls data, returns object of locations and their ID */
 let data = getLocations();
@@ -21,8 +21,9 @@ const FlatListOut = () => {
   const navigation = useNavigation();
   const [context, setContext] = useContext(Context);
 
-  function OnPressHandle(){
-    
+  function OnPressHandle(item){
+    setContext(item);
+    navigation.navigate('SpotScreen')
   }
 
   const renderItem = ({ item }) => {
@@ -33,7 +34,7 @@ const FlatListOut = () => {
       <View>
       <Item
         item={item}
-        onPress={() => navigation.navigate('SpotScreen')}
+        onPress={() => OnPressHandle(item)}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
         

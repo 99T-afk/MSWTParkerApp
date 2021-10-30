@@ -5,14 +5,19 @@
  * 
  */
 
-import * as React from 'react';
+
+//import * as React from 'react';
+import React, { useContext } from "react";
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import WindCompass from '../components/WindCompass';
 import SwellCompass from '../components/SwellCompass';
 import SpotScroll from '../components/SpotDayScroll';
+import { Context } from "../components/Context.js";
 
 
 export default function SpotScreen() {
+  const [context, setContext] = useContext(Context);
+  console.log(context);
     return (
       <View>
           <SpotScroll contentOffset={100,100}/>  
