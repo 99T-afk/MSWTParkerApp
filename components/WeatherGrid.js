@@ -8,9 +8,20 @@ const daysIn = [
     {id: 3},
 ]
 
+//renders a grid row
+const Item = () => {
+  return(
+  <View style={styles.rowGrid}>
+    <Text>Hi!</Text>
+  </View>
+  );
+  
+}
 
-export default function WeatherGrid(props) {
-  const renderItem = ({ item }) => <Item title={item.title}/>;
+
+
+const WeatherGrid = ({props}) => {
+  const renderItem = ({ item }) => {return(<Item/>)};
 
   return (
     <View style={styles.container}>
@@ -28,7 +39,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#cbdaf2",
     borderRadius: 10,
   },
+  rowGrid: {
+    height: "5%",
+    backgroundColor: "#cbdaee",
+    borderRadius: 10,
+  },
   testText: {
     fontSize: 40,
   },
 });
+
+export default WeatherGrid;
