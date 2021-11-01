@@ -36,9 +36,8 @@ const SpotScroll = (props) => {
     }
 
     return(
-        <View>
+        <View style={styles.dayScroll} >
             <ScrollView 
-            style={styles.dayScroll} 
             horizontal={true} 
             ref={ScrollRef} 
             snapToInterval={scrollInterval} 

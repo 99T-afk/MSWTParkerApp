@@ -11,6 +11,7 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import WindCompass from '../components/WindCompass';
 import SwellCompass from '../components/SwellCompass';
 import SpotScroll from '../components/SpotDayScroll';
+import WeatherGrid from '../components/WeatherGrid';
 import { Context } from "../components/Context.js";
 import MSWdata from "../components/MSWApi.json";
 
@@ -20,32 +21,41 @@ export default function SpotScreen() {
   const [daySet, daySetChange] = useState(4);
   //console.log(context);
     return (
-      <View>
+      <View style={styles.pageStyle}>     
         <Text style={styles.titleStyle}>{context.name}</Text>
           <View style={styles.compass}>
             <WindCompass daySet={daySet}/>
             <SwellCompass/>
           </View>
-          <SpotScroll daySetChange={daySetChange}/>  
-          <Text></Text>
+          <SpotScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
+          <WeatherGrid style={styles.weatherGrid} daySetChange={daySetChange}/>
       </View>
     );
 }
 
 const styles = StyleSheet.create({
+  pageStyle: {
+    
+  },
   compass: {
     padding: 5,
-    height: "65%",
+    height: "60%",
     flexDirection:"row",  
   },
   dayScroll: {
     padding: 5,
     alignSelf:"center",
-    alignContent:"flex-start",
   },
   titleStyle: {
     fontSize: 25,
     alignSelf:"center",
+  },
+  weatherGrid: {
+    marginTop: 40,
+    padding: 5,
+    height: "30%",
+    alignSelf:"center",
+    borderRadius: 10,
   },
 
 })
