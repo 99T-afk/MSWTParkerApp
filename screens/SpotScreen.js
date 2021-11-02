@@ -35,7 +35,7 @@ export default function SpotScreen() {
 
 const styles = StyleSheet.create({
   pageStyle: {
-    
+    padding: 5,
   },
   compass: {
     padding: 5,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   dayScroll: {
     padding: 5,
-    alignSelf:"center",
+    marginBottom: 500,
   },
   titleStyle: {
     fontSize: 25,
@@ -53,8 +53,7 @@ const styles = StyleSheet.create({
   weatherGrid: {
     marginTop: 40,
     padding: 5,
-    height: "30%",
-    alignSelf:"center",
+    height: "50%",
     borderRadius: 10,
   },
 

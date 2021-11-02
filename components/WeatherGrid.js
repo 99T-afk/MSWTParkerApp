@@ -24,7 +24,7 @@ const WeatherGrid = ({props}) => {
   const renderItem = ({ item }) => {return(<Item/>)};
 
   return (
-    <View style={styles.container}>
+    <View style={styles.weatherBox}>
       <FlatList
         data={daysIn}
         renderItem={renderItem}
@@ -35,9 +35,10 @@ const WeatherGrid = ({props}) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  weatherBox: {
     backgroundColor: "#cbdaf2",
     borderRadius: 10,
+    padding: 5,
   },
   rowGrid: {
     height: "5%",

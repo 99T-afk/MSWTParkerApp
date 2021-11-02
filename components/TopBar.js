@@ -1,11 +1,17 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 
 export default function TopBar(){
+    const navigation = useNavigation();
     return(
         <View style={styles.container}>
-            <Image style={styles.imageStyle} source={require("../assets/logo.png")} />
+            <TouchableOpacity style={styles.imageStyle} onPress={() => {
+                navigation.navigate('Tab');
+            }}>
+                <Image style={styles.imageStyle} source={require("../assets/logo.png")} />
+            </TouchableOpacity>
             <AntDesign name="setting" size={35} style={styles.settingIcon}/>
         </View>
     )
