@@ -1,11 +1,3 @@
-/**
- * Possible build order ->
- * components get created, set use state for scrollview onTouch
- * when onTouch is hit, refresh both compasses and reset scrollview for hours
- * 
- */
-
-
 import React, { useContext, useState } from "react";
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import WindCompass from '../components/WindCompass';
@@ -23,12 +15,15 @@ export default function SpotScreen() {
     return (
       <View style={styles.pageStyle}>     
         <Text style={styles.titleStyle}>{context.name}</Text>
-          <View style={styles.compass}>
-            <WindCompass daySet={daySet}/>
-            <SwellCompass/>
-          </View>
-          <SpotDayScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
-          <WeatherGrid style={styles.weatherGrid} daySet={daySet}/>
+        <View style={{marginRight: 5, marginLeft: 5}}>
+            <View style={styles.compass}>
+              <WindCompass daySet={daySet}/>
+              <SwellCompass/>
+            </View>
+          
+            <SpotDayScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
+            <WeatherGrid style={styles.weatherGrid} daySet={daySet}/>
+        </View>
       </View>
     );
 }
@@ -38,9 +33,9 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   compass: {
-    margin: 5,
-    height: "40%",
-    flexDirection:"row", 
+    marginBottom: 5,
+    height: "45%",
+    flexDirection: "row", 
   },
   dayScroll: {
     marginBottom: 5,

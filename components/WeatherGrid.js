@@ -31,7 +31,6 @@ const MiniCompass = (props) => {
 export default function WeatherGrid (props){
   //const renderItem = ({ item }) => {return(<Item/>)};
   let directData = MSWdata[props.daySet]["wind"]["direction"];
-  let clicked = 1;
   console.log(props.daySet);
 
   return(
@@ -78,10 +77,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   rowText: {
-    fontSize: 17,
+    fontSize: 18,
   },
   textTitleGrid: {
-    fontSize: 17,
+    fontSize: 18,
     fontWeight: 'bold',
   }
 });
