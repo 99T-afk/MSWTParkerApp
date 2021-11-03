@@ -12,7 +12,11 @@ export default function TopBar(){
             }}>
                 <Image style={styles.imageStyle} source={require("../assets/logo.png")} />
             </TouchableOpacity>
+            <TouchableOpacity style={styles.settingIcon} onPress={() => {
+                navigation.navigate('SettingsScreen');
+            }}>
             <AntDesign name="setting" size={35} style={styles.settingIcon}/>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
     },
     settingIcon: {
         justifyContent: "space-between",
-        marginRight: "4%",
+        marginRight: "2%",
         marginTop: "1%",
     }
 })

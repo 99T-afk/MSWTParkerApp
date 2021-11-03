@@ -16,6 +16,7 @@ import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import SpotScreen from './screens/SpotScreen';
+import SettingsScreen from './screens/SettingsScreen';
 import FavouriteScreen from './screens/FavouriteScreen';
 import { AntDesign } from '@expo/vector-icons'; 
 import { NavigationContainer } from '@react-navigation/native';
@@ -64,6 +65,11 @@ const StackNav = () => {
         <SpotStack.Screen
           name="SpotScreen"
           component={SpotScreen}
+          options={{headerShown: false,marginTop: StatusBar.currentHeight || 0,}}
+        />
+        <SpotStack.Screen
+          name="SettingsScreen"
+          component={SettingsScreen}
           options={{headerShown: false,marginTop: StatusBar.currentHeight || 0,}}
         />
   </SpotStack.Navigator>

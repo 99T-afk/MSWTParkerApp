@@ -18,7 +18,7 @@ import MSWdata from "../components/MSWApi.json";
 
 export default function SpotScreen() {
   const [context, setContext] = useContext(Context);
-  const [daySet, daySetChange] = useState(4);
+  const [daySet, daySetChange] = useState(1);
   //console.log(context);
     return (
       <View style={styles.pageStyle}>     
@@ -27,7 +27,7 @@ export default function SpotScreen() {
             <WindCompass daySet={daySet}/>
             <SwellCompass/>
           </View>
-          <SpotDayScroll daySetChange={daySetChange}/>  
+          <SpotDayScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
           <WeatherGrid style={styles.weatherGrid} daySet={daySet}/>
       </View>
     );
@@ -39,12 +39,11 @@ const styles = StyleSheet.create({
   },
   compass: {
     margin: 5,
-    height: "50%",
+    height: "40%",
     flexDirection:"row", 
   },
   dayScroll: {
-    margin: 5,
-    marginBottom: 500,
+    marginBottom: 5,
   },
   titleStyle: {
     fontSize: 25,

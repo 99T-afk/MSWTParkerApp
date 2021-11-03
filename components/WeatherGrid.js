@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Text, View, StyleSheet, FlatList } from "react-native";
-import { DataTable } from 'react-native-paper';
 import { AntDesign } from '@expo/vector-icons';
 import MSWdata from "./MSWApi.json";
 
@@ -21,7 +20,10 @@ const Item = () => {
 
 const MiniCompass = (props) => {
   return(
-    <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: props.directData + "deg"}]}} />
+    <View>
+    <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4]["wind"]["direction"] + "deg"}]}} />
+    <Text></Text>
+    </View>
   ); 
 }
 
@@ -29,64 +31,59 @@ const MiniCompass = (props) => {
 export default function WeatherGrid (props){
   //const renderItem = ({ item }) => {return(<Item/>)};
   let directData = MSWdata[props.daySet]["wind"]["direction"];
+  let clicked = 1;
+  console.log(props.daySet);
 
-  return (
+  return(
     <View style={styles.weatherBox}>
       <View style={styles.rowTitle}>
-        <Text>Time</Text>
-        <Text>Swell</Text>
-        <Text>Wind</Text>
+        <Text style={styles.textTitleGrid}>Time</Text>
+        <Text style={styles.textTitleGrid}>Swell</Text>
+        <Text style={styles.textTitleGrid}>Wind</Text>
       </View>
       <View style={styles.rowGrid}>
-        <Text>6am</Text>
-        <Text>10ft. @ 4s</Text>
-        <MiniCompass directData={directData}/>
+        <Text style={styles.rowText}>6am</Text>
+        <Text style={styles.rowText}>{MSWdata[props.daySet * 4]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet * 4]["swell"]["components"]["combined"]["period"]}s</Text>
+        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4]["wind"]["direction"] + "deg"}]}} />
       </View>
       <View style={styles.rowGrid}>
-        <Text>Noon</Text>
-        <Text>12ft. @ 6s</Text>
-        <MiniCompass directData={12}/>
+        <Text style={styles.rowText}>Noon</Text>
+        <Text style={styles.rowText}>{MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"]["period"]}s</Text>
+        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4 + 2]["wind"]["direction"] + "deg"}]}} />
       </View>
       <View style={styles.rowGrid}>
-        <Text>6pm</Text>
-        <Text>7ft. @ 3s</Text>
-        <MiniCompass directData={80}/>
+        <Text style={styles.rowText}>6pm</Text>
+        <Text style={styles.rowText}>{MSWdata[props.daySet * 4 + 3]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet  * 4 + 3]["swell"]["components"]["combined"]["period"]}s</Text>
+        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4 + 3]["wind"]["direction"] + "deg"}]}} />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-  },
   weatherBox: {
-    backgroundColor: "#000",
+    backgroundColor: "#fff000",
     borderRadius: 10,
-    flex: 1,
   },
   rowGrid: {
     height: 60,
     flexDirection: "row",
     justifyContent: "space-around",
     backgroundColor: "#cbdaee",
+    borderRadius: 10,
+    alignItems: "center",
   },
   rowTitle: {
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "#cbdaee",
-    fontSize: 40,
+  },
+  rowText: {
+    fontSize: 17,
+  },
+  textTitleGrid: {
+    fontSize: 17,
     fontWeight: 'bold',
-  },
-  rowBox: {
-    height: "5%",
-    backgroundColor: "#ffffff",
-  },
-  testText: {
-    fontSize: 40,
-  },
+  }
 });
 
 /**
