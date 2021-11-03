@@ -42,6 +42,7 @@ const SpotScroll = (props) => {
             ref={ScrollRef} 
             snapToInterval={scrollInterval} 
             overScrollMode={"always"}
+            persistentScrollbar={true}
             >                
                 <ScrollItem daySetChange={props.daySetChange} dayIndex={0}></ScrollItem>
                 <ScrollItem daySetChange={props.daySetChange} dayIndex={1}></ScrollItem>
@@ -61,14 +62,14 @@ const styles = StyleSheet.create({
     dayScroll: {
         backgroundColor: "#d3f300", 
         borderRadius: 10,     
-        padding: 3,
+        margin: 5,
     },
     dayTextStyle: {
         alignItems: "center",  
         marginVertical: 4,
         marginHorizontal: 25,
         fontSize: 20,
-        width: 85,
+        width: 70,
     },
     dayBuffer: {
         marginVertical: 4,

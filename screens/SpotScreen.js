@@ -27,7 +27,7 @@ export default function SpotScreen() {
             <WindCompass daySet={daySet}/>
             <SwellCompass/>
           </View>
-          <SpotScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
+          <SpotScroll daySetChange={daySetChange}/>  
           <WeatherGrid style={styles.weatherGrid} daySetChange={daySetChange}/>
       </View>
     );
@@ -35,15 +35,15 @@ export default function SpotScreen() {
 
 const styles = StyleSheet.create({
   pageStyle: {
-    padding: 5,
+    padding: 0,
   },
   compass: {
-    padding: 5,
-    height: "60%",
-    flexDirection:"row",  
+    margin: 5,
+    height: "50%",
+    flexDirection:"row", 
   },
   dayScroll: {
-    padding: 5,
+    margin: 5,
     marginBottom: 500,
   },
   titleStyle: {
@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
     alignSelf:"center",
   },
   weatherGrid: {
-    marginTop: 40,
-    padding: 5,
+    padding: 0,
     height: "50%",
     borderRadius: 10,
   },

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
 import MSWdata from "./MSWApi.json";
 
 //let data = getLocations();
 let directData = MSWdata[0]["swell"]["components"]["combined"]["direction"];
-let compassSize = 80;
+let compassSize = 67;
 
 export default function SwellCompass() {
     return (
       <View style={styles.backC}>
-          <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{translateY:100-(compassSize / 2)},{ rotate: directData + "deg"},{translateX: 100-(compassSize / 2)}]}} />
-          <Text style={styles.swellText}>{directData + "°"}</Text>   
+          <Image style={{transform: [{ scale: 0.30 },{translateY:40 -(compassSize / 2)},{ rotate: directData + "deg"},{translateX: 40-(compassSize / 2)}]}} source={require("../assets/compass.png")} />
+            <Text style={styles.swellText}>{directData + "°"}</Text>   
       </View>
     );
 }

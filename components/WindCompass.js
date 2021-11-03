@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
 import MSWdata from "./MSWApi.json";
 
 //let data = getLocations();
 //console.log(MSWdata[0]["wind"]["direction"]);
 
-let compassSize = 80;
+let compassSize = 67;
 
 export default function WindCompass(props) {
     let directData = MSWdata[props.daySet]["wind"]["direction"];
@@ -15,7 +15,7 @@ export default function WindCompass(props) {
     return (
       <View style={styles.back}>
           <Text style={styles.windTitle}>Wind:</Text>
-          <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{translateY:100 -(compassSize / 2)},{ rotate: directData + "deg"},{translateX: 100-(compassSize / 2)}]}} />
+          <Image style={{transform: [{ scale: 0.65 },{translateY:(compassSize / 2)- 35},{translateX:(compassSize / 2) + 35},{ rotate: directData + "deg"}]}} source={require("../assets/compass.png")} />        
           <Text style={styles.windTextDirect}>{directData + "°"}</Text>      
           <Text style={styles.windTextSpeed}>{speedData + " mph"}</Text> 
       </View>
@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
     },
     windTextDirect: {
         fontSize: 25,
-        marginTop: "45%",
         alignSelf: "center",
     },
     windTextSpeed: {
         fontSize: 25,
-        marginTop: "5%",
         alignSelf: "center",
     }
   })
+
+  //old icon <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{translateY:70 -(compassSize / 2)},{ rotate: directData + "deg"},{translateX: 70-(compassSize / 2)}]}} />

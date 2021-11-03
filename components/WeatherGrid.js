@@ -21,15 +21,11 @@ const Item = () => {
 
 
 const WeatherGrid = ({props}) => {
-  const renderItem = ({ item }) => {return(<Item/>)};
+  //const renderItem = ({ item }) => {return(<Item/>)};
 
   return (
     <View style={styles.weatherBox}>
-      <FlatList
-        data={daysIn}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <Text>Hey!</Text>  
     </View>
   );
 }
@@ -38,12 +34,19 @@ const styles = StyleSheet.create({
   weatherBox: {
     backgroundColor: "#cbdaf2",
     borderRadius: 10,
-    padding: 5,
+    padding: 0,
   },
   rowGrid: {
     height: "5%",
     backgroundColor: "#cbdaee",
-    borderRadius: 10,
+  },
+  rowTitle: {
+    height: "5%",
+    backgroundColor: "#e6ffff",
+  },
+  rowBox: {
+    height: "5%",
+    backgroundColor: "#ffffff",
   },
   testText: {
     fontSize: 40,
@@ -51,3 +54,13 @@ const styles = StyleSheet.create({
 });
 
 export default WeatherGrid;
+
+/**
+ * 
+ * <FlatList
+        data={daysIn}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
+
+ */

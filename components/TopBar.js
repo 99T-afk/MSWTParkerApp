@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         flexDirection: "row",
         justifyContent: "space-between",
+        marginBottom: 2,
     },
     imageStyle: {
         width: 140,
         height: 48,
-        marginLeft: 10,
+        marginLeft: 7,
         padding: 2,
     },
     settingIcon: {
