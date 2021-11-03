@@ -10,7 +10,7 @@ import React, { useContext, useState } from "react";
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import WindCompass from '../components/WindCompass';
 import SwellCompass from '../components/SwellCompass';
-import SpotScroll from '../components/SpotDayScroll';
+import SpotDayScroll from '../components/SpotDayScroll';
 import WeatherGrid from '../components/WeatherGrid';
 import { Context } from "../components/Context.js";
 import MSWdata from "../components/MSWApi.json";
@@ -27,8 +27,8 @@ export default function SpotScreen() {
             <WindCompass daySet={daySet}/>
             <SwellCompass/>
           </View>
-          <SpotScroll daySetChange={daySetChange}/>  
-          <WeatherGrid style={styles.weatherGrid} daySetChange={daySetChange}/>
+          <SpotDayScroll daySetChange={daySetChange}/>  
+          <WeatherGrid style={styles.weatherGrid} daySet={daySet}/>
       </View>
     );
 }
@@ -51,9 +51,7 @@ const styles = StyleSheet.create({
     alignSelf:"center",
   },
   weatherGrid: {
-    padding: 0,
-    height: "50%",
-    borderRadius: 10,
+    backgroundColor: "#000",
   },
 
 })

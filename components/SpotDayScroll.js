@@ -6,7 +6,7 @@ import MSWdata from "./MSWApi.json";
 
 let dayData = MSWdata[0]["day"];
 
-const SpotScroll = (props) => {
+const SpotDayScroll = (props) => {
     const ScrollRef = useRef(null);
     
     let scrollInterval = 130;
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default SpotScroll;
+export default SpotDayScroll;

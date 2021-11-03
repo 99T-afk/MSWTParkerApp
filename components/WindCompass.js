@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     back: {
         width: "50%",
         backgroundColor: "#cffffe",
-        borderRadius: 10,
     },
     windTitle:{
         fontSize: 25,
