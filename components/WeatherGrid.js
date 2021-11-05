@@ -62,14 +62,15 @@ export default function WeatherGrid (props){
 const styles = StyleSheet.create({
   weatherBox: {
     backgroundColor: "#fff000",
-    borderRadius: 10,
+    borderRadius: 5,
+    marginBottom: 5,
   },
   rowGrid: {
     height: 60,
     flexDirection: "row",
     justifyContent: "space-around",
     backgroundColor: "#cbdaee",
-    borderRadius: 10,
+    borderRadius: 5,
     alignItems: "center",
   },
   rowTitle: {

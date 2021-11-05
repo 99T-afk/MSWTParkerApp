@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     backC: {       
         width: "50%",
         backgroundColor: "#03fc84",
-        borderRadius: 10,
+        borderRadius: 5,
     },
     swellText: {
         fontSize: 25,

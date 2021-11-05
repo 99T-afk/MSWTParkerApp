@@ -4,6 +4,7 @@ import WindCompass from '../components/WindCompass';
 import SwellCompass from '../components/SwellCompass';
 import SpotDayScroll from '../components/SpotDayScroll';
 import WeatherGrid from '../components/WeatherGrid';
+import TideBox from "../components/TideBox";
 import { Context } from "../components/Context.js";
 import MSWdata from "../components/MSWApi.json";
 
@@ -20,9 +21,10 @@ export default function SpotScreen() {
               <WindCompass daySet={daySet}/>
               <SwellCompass/>
             </View>
-          
+            
             <SpotDayScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
             <WeatherGrid style={styles.weatherGrid} daySet={daySet}/>
+            <TideBox></TideBox>
         </View>
       </View>
     );
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
   },
   compass: {
     marginBottom: 5,
-    height: "45%",
+    height: "42%",
     flexDirection: "row", 
   },
   dayScroll: {
@@ -47,5 +49,7 @@ const styles = StyleSheet.create({
   weatherGrid: {
     backgroundColor: "#000",
   },
-
+  tideBox: {
+    
+  }
 })
