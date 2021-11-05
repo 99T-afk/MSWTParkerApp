@@ -29,16 +29,15 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     windTitle:{
-        fontSize: 25,
-        marginTop: "5%",
+        fontSize: 23,
         alignSelf: "center",
     },
     windTextDirect: {
-        fontSize: 25,
+        fontSize: 21,
         alignSelf: "center",
     },
     windTextSpeed: {
-        fontSize: 25,
+        fontSize: 21,
         alignSelf: "center",
     }
   })

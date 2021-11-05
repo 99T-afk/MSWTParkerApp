@@ -19,7 +19,7 @@ export default function SpotScreen() {
         <View style={{marginRight: 5, marginLeft: 5}}>
             <View style={styles.compass}>
               <WindCompass daySet={daySet}/>
-              <SwellCompass/>
+              <SwellCompass daySet={daySet}/>
             </View>
             
             <SpotDayScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
