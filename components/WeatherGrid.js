@@ -32,6 +32,7 @@ export default function WeatherGrid (props){
   //const renderItem = ({ item }) => {return(<Item/>)};
   let directData = MSWdata[props.daySet]["wind"]["direction"];
   console.log(props.daySet);
+  console.log("");
 
   return(
     <View style={styles.weatherBox}>
@@ -43,18 +44,27 @@ export default function WeatherGrid (props){
       <View style={styles.rowGrid}>
         <Text style={styles.rowText}>6am</Text>
         <Text style={styles.rowText}>{MSWdata[props.daySet * 4]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet * 4]["swell"]["components"]["combined"]["period"]}s</Text>
-        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4]["wind"]["direction"] + "deg"}]}} />
-      </View>
+        <View>
+        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4]["wind"]["direction"] + "deg"}]}} />       
+        <Text style={styles.textWindDirection}>{MSWdata[props.daySet * 4]["wind"]["compassDirection"]}</Text>
+        </View>
+        </View>
       <View style={styles.rowGrid}>
         <Text style={styles.rowText}>Noon</Text>
         <Text style={styles.rowText}>{MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"]["period"]}s</Text>
+        <View>
         <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4 + 2]["wind"]["direction"] + "deg"}]}} />
+        <Text style={styles.textWindDirection}>{MSWdata[props.daySet * 4 + 2]["wind"]["compassDirection"]}</Text>
+      </View>
       </View>
       <View style={styles.rowGrid}>
         <Text style={styles.rowText}>6pm</Text>
         <Text style={styles.rowText}>{MSWdata[props.daySet * 4 + 3]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet  * 4 + 3]["swell"]["components"]["combined"]["period"]}s</Text>
+        <View>
         <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4 + 3]["wind"]["direction"] + "deg"}]}} />
+        <Text style={styles.textWindDirection}>{MSWdata[props.daySet * 4 + 3]["wind"]["compassDirection"]}</Text>
       </View>
+    </View>
     </View>
   );
 }
@@ -83,6 +93,9 @@ const styles = StyleSheet.create({
   textTitleGrid: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  textWindDirection: {
+    alignSelf: "center",
   }
 });
 
