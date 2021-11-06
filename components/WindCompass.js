@@ -10,13 +10,14 @@ let compassSize = 67;
 
 export default function WindCompass(props) {
     let directData = MSWdata[props.daySet]["wind"]["direction"];
+    let directDataCompass = MSWdata[props.daySet]["wind"]["compassDirection"];
     let speedData = MSWdata[props.daySet]["wind"]["speed"];
 
     return (
       <View style={styles.back}>
           <Text style={styles.windTitle}>Wind:</Text>
           <Image style={{transform: [{ scale: 0.65 },{translateY:(compassSize / 2)- 35},{translateX:(compassSize / 2) + 35},{ rotate: directData + "deg"}]}} source={require("../assets/compass.png")} />        
-          <Text style={styles.windTextDirect}>{directData + "°"}</Text>      
+          <Text style={styles.windTextDirect}>{directData + "° | " + directDataCompass}</Text>      
           <Text style={styles.windTextSpeed}>{speedData + " mph"}</Text> 
       </View>
     );
