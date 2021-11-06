@@ -26,7 +26,7 @@ export default function SwellCompass(props) {
 const styles = StyleSheet.create({
     backC: {       
         width: "50%",
-        backgroundColor: "#03fc84",
+        backgroundColor: "#bfe8ff",
         borderRadius: 5,
     },
     swellTitle:{

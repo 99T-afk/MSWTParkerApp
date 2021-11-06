@@ -71,7 +71,7 @@ export default function WeatherGrid (props){
 
 const styles = StyleSheet.create({
   weatherBox: {
-    backgroundColor: "#fff000",
+    backgroundColor: "#dedede",
     borderRadius: 5,
     marginBottom: 5,
   },
@@ -79,9 +79,11 @@ const styles = StyleSheet.create({
     height: 60,
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "#cbdaee",
+    backgroundColor: "#e3f5ff",
     borderRadius: 5,
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#dedede",
   },
   rowTitle: {
     flexDirection: "row",
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
   },
   textWindDirection: {
     alignSelf: "center",
+    fontSize: 16,
   }
 });
 

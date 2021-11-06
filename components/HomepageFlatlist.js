@@ -32,14 +32,18 @@ const FlatListOut = () => {
 
     return (
       <View>
-      <Item
-        item={item}
-        onPress={() => OnPressHandle(item)}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
-        
-      />
-       </View>   
+        <View>
+          <Item
+            item={item}
+            onPress={() => OnPressHandle(item)}
+            backgroundColor={{ backgroundColor }}
+            textColor={{ color }}
+          />
+        </View>
+        <View>
+          <Text>Hey!</Text>
+        </View>
+      </View>   
       
     );
   };

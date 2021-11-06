@@ -60,7 +60,7 @@ const SpotDayScroll = (props) => {
 
 const styles = StyleSheet.create({
     dayScroll: {
-        backgroundColor: "#d3f300", 
+        backgroundColor: "#54c3ff", 
         borderRadius: 5,     
         marginBottom: 5,
     },

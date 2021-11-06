@@ -23,7 +23,7 @@ export default function SpotScreen() {
             </View>          
             <SpotDayScroll style={styles.dayScroll} daySetChange={daySetChange}/>  
             <WeatherGrid style={styles.weatherGrid} daySet={daySet}/>
-            <TideBox daySet={daySet}></TideBox>
+            <TideBox style={{borderWidth: 3}} daySet={daySet}></TideBox>
         </View>
       </View>
     );
@@ -50,5 +50,6 @@ const styles = StyleSheet.create({
   },
   tideBox: {
     height: "30%",
+    borderWidth: 2,
   }
 })

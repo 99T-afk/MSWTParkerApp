@@ -16,13 +16,13 @@ export default function TideBox(props){
     let data = TideData[props.daySet]["data"];
     let highTide = TideData[props.daySet]["high"];
     let lowTide = TideData[props.daySet]["low"];
-    const XAxisData = ["5am","6am", "7am", "8am", "9am", "10am", "11am","12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm"]
+    const XAxisData = [0,2,4,6,8,10,12,14,16,18,20,22, 24]
 
     const Line = ({ line }) => (
         <Path
             key={'line'}
             d={line}
-            stroke={'rgb(134, 65, 244)'}
+            stroke={'rgb(0, 0, 0)'}
             fill={'none'}
         />
     )
@@ -38,14 +38,14 @@ export default function TideBox(props){
                 data={data}
                 contentInset={{ top: 30, bottom: 30 }}
                 curve={shape.curveNatural}
-                svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}
+                svg={{ fill: 'rgba(84, 195, 255, 1)' }}
             >                  
-                <Line/>             
+                <Line/>       
             </AreaChart>
             <XAxis
                     style={{ marginHorizontal: -10, paddingLeft: 5 , paddingRight: 5}}
                     data={XAxisData}
-                    formatLabel={(value, index) => index}
+                    formatLabel={(value, index) => index * 2}
                     contentInset={{ left: 10, right: 10, top:10, bottom: 10,}}
                     svg={{ fontSize: 10, fill: 'black' }}
                 />
