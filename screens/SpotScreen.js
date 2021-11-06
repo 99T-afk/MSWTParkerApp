@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   compass: {
     marginBottom: 5,
-    height: "42%",
+    height: "30%",
     flexDirection: "row", 
   },
   dayScroll: {
