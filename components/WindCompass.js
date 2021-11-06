@@ -6,7 +6,7 @@ import MSWdata from "./MSWApi.json";
 //let data = getLocations();
 //console.log(MSWdata[0]["wind"]["direction"]);
 
-let compassSize = 67;
+let compassSize = 65;
 
 export default function WindCompass(props) {
     let directData = MSWdata[props.daySet]["wind"]["direction"];
@@ -16,7 +16,7 @@ export default function WindCompass(props) {
     return (
       <View style={styles.back}>
           <Text style={styles.windTitle}>Wind:</Text>
-          <Image style={{transform: [{ scale: 0.65 },{translateY:(compassSize / 2)- 35},{translateX:(compassSize / 2) + 35},{ rotate: directData + "deg"}]}} source={require("../assets/compass.png")} />        
+          <Image style={{transform: [{ scale: 0.60 },{translateY:(compassSize / 2)- 35},{translateX:(compassSize / 2) + 35},{ rotate: directData + "deg"}]}} source={require("../assets/compass.png")} />        
           <Text style={styles.windTextDirect}>{directData + "° | " + directDataCompass}</Text>      
           <Text style={styles.windTextSpeed}>{speedData + " mph"}</Text> 
       </View>

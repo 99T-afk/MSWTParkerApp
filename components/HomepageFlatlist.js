@@ -3,6 +3,7 @@ import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, 
 import getLocations from "./Places";
 import { useNavigation } from '@react-navigation/native';
 import { Context } from "../components/Context.js";
+import { Fontisto } from '@expo/vector-icons';
 
 //console.log(getLocations());
 
@@ -10,9 +11,15 @@ import { Context } from "../components/Context.js";
 let data = getLocations();
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]} >
+  <View>
     <Text style={[styles.title, textColor]}>{item.name}</Text>
     <Text style={[styles.smalltext, textColor]}>{item.distance}</Text>
+  </View>
+  <View style={styles.weatherIcon}>  
+    <Fontisto name={data[item.id]["weatherIcon"]} size={27} color="black" />
+    <Text>{data[item.id]["temp"]} °C</Text>
+  </View>
   </TouchableOpacity>
 );
 
@@ -22,16 +29,16 @@ const FlatListOut = () => {
   const [context, setContext] = useContext(Context);
 
   function OnPressHandle(item){
+    console.log("item oject: " + item )
     setContext(item);
     navigation.navigate('SpotScreen')
   }
 
   const renderItem = ({ item }) => {
-    const backgroundColor = "#dedede";
+    const backgroundColor = "#ebecef";
     const color = 'black';
 
     return (
-      <View>
         <View>
           <Item
             item={item}
@@ -40,10 +47,6 @@ const FlatListOut = () => {
             textColor={{ color }}
           />
         </View>
-        <View>
-          <Text>Hey!</Text>
-        </View>
-      </View>   
       
     );
   };
@@ -55,6 +58,7 @@ const FlatListOut = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
+        persistentScrollbar={true}
       />
     </SafeAreaView>
   );
@@ -64,20 +68,30 @@ const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
     marginTop: 3,
+    backgroundColor: "#f7fbff",
   },
   item: {
     flex: 1,
     padding: 15,
     marginVertical: 3,
-    marginHorizontal: 7,
+    marginHorizontal: 10,
     borderRadius: 4,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: "10%",
+    elevation: 4,
+    marginBottom: 5,
   },
   smalltext:{
     fontSize: 12,
   },
   title: {
-    fontSize: 18,
+    fontSize: 23,
   },
+  weatherIcon: {
+    marginRight: "2%",
+    marginTop: "2%",
+  }
 });
 
 export default FlatListOut;
