@@ -9,7 +9,7 @@ import { Context } from "../components/Context.js";
 
 export default function SpotScreen() {
   const [context, setContext] = useContext(Context);
-  const [daySet, daySetChange] = useState(1);
+  const [daySet, daySetChange] = useState(5);
   //console.log(context);
     return (
       <View style={styles.pageStyle}>     

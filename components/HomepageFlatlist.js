@@ -67,9 +67,8 @@ const FlatListOut = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight || 0,
-    marginTop: 3,
     backgroundColor: "#f7fbff",
+    paddingTop: 5,
   },
   item: {
     flex: 1,
