@@ -4,6 +4,7 @@ import getLocations from "./Places";
 import { useNavigation } from '@react-navigation/native';
 import { Context } from "../components/Context.js";
 import { Fontisto } from '@expo/vector-icons';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 //console.log(getLocations());
 
