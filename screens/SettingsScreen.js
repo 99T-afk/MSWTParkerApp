@@ -11,13 +11,13 @@ export default function SettingsScreen() {
         <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>Display units in:</Text>
         <View style={{ backgroundColor: "#fffefc", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
           <View style={styles.opacityStyleLeft}>
-          <TouchableOpacity onPress={() => settingUpdateTemp("Imperical")}>
-            <Text style={settingUpdateTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#b43ad6'}}>Imperical</Text>
+          <TouchableOpacity style={settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#b43ad6'}} onPress={() => settingUpdateTemp("Imperical")}>
+            <Text>Imperical</Text>
           </TouchableOpacity>
           </View>
           <View style={styles.opacityStyleRight}>
           <TouchableOpacity onPress={() => settingUpdateTemp("Metric")}>
-            <Text>Metric</Text>
+            <Text style={settingConditionTemp == "Metric" ? {backgroundColor: '#b43ad6'} : {backgroundColor: '#fff'}}>Metric</Text>
           </TouchableOpacity>
           </View>
         </View>
@@ -51,11 +51,10 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,   
     alignSelf: "center",
     borderBottomWidth: "50%",
-    width: "50%"
+    width: "50%",
   },
   opacityStyleRight: {
     borderTopRightRadius: 5,
-    borderBottomRightRadius: 5,
-    backgroundColor: "#feee00",
+    borderBottomRightRadius: 5
   },
 });
