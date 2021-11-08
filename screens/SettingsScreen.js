@@ -8,15 +8,30 @@ export default function SettingsScreen() {
     return (
       <View style={styles.containerSettings}>
         <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>Display units in:</Text>
-        <View style={{ backgroundColor: "#ffff00", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
-          <View style={{width: "50%"}}>
-          <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => prompt("hi")}>
+        <View style={{ backgroundColor: "#fffefc", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
+          <View style={styles.opacityStyleLeft}>
+          <TouchableOpacity onPress={() => prompt("hi")}>
             <Text>Imperical</Text>
           </TouchableOpacity>
           </View>
           <View style={styles.opacityStyleRight}>
           <TouchableOpacity onPress={() => prompt("hi")}>
             <Text>Metric</Text>
+          </TouchableOpacity>
+          </View>
+        </View>
+
+
+        <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>App color scheme:</Text>
+        <View style={{ backgroundColor: "#ffff00", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
+          <View style={{width: "50%"}}>
+          <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => prompt("hi")}>
+            <Text>Light</Text>
+          </TouchableOpacity>
+          </View>
+          <View style={styles.opacityStyleRight}>
+          <TouchableOpacity onPress={() => prompt("hi")}>
+            <Text>Dark</Text>
           </TouchableOpacity>
           </View>
         </View>
@@ -34,6 +49,8 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,   
     alignSelf: "center",
+    borderBottomWidth: "50%",
+    width: "50%"
   },
   opacityStyleRight: {
     borderTopRightRadius: 5,
