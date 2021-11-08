@@ -3,19 +3,20 @@ import {StyleSheet, Text, View} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function SettingsScreen() {
-  const [settingCondition, settingUpdate] = useState("F");
+  const [settingConditionTemp, settingUpdateTemp] = useState("Imperical");
+  const [settingTheme, settingThemeUpdate] = useState("Light");
 
     return (
       <View style={styles.containerSettings}>
         <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>Display units in:</Text>
         <View style={{ backgroundColor: "#fffefc", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
           <View style={styles.opacityStyleLeft}>
-          <TouchableOpacity onPress={() => prompt("hi")}>
-            <Text>Imperical</Text>
+          <TouchableOpacity onPress={() => settingUpdateTemp("Imperical")}>
+            <Text style={settingUpdateTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#b43ad6'}}>Imperical</Text>
           </TouchableOpacity>
           </View>
           <View style={styles.opacityStyleRight}>
-          <TouchableOpacity onPress={() => prompt("hi")}>
+          <TouchableOpacity onPress={() => settingUpdateTemp("Metric")}>
             <Text>Metric</Text>
           </TouchableOpacity>
           </View>
@@ -25,12 +26,12 @@ export default function SettingsScreen() {
         <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>App color scheme:</Text>
         <View style={{ backgroundColor: "#ffff00", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
           <View style={{width: "50%"}}>
-          <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => prompt("hi")}>
+          <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => settingThemeUpdate("Light")}>
             <Text>Light</Text>
           </TouchableOpacity>
           </View>
           <View style={styles.opacityStyleRight}>
-          <TouchableOpacity onPress={() => prompt("hi")}>
+          <TouchableOpacity onPress={() => settingThemeUpdate("Dark")}>
             <Text>Dark</Text>
           </TouchableOpacity>
           </View>
