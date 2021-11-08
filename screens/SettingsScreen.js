@@ -1,21 +1,43 @@
-import React, { Component } from 'react';
-import {StyleSheet,Text,View} from 'react-native';
+import React, { useState } from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function SettingsScreen() {
- 
+  const [settingCondition, settingUpdate] = useState("F");
+
     return (
-      <View style={styles.container}>
-          <Text>Settings Screen!</Text>
+      <View style={styles.containerSettings}>
+        <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>Display units in:</Text>
+        <View style={{ backgroundColor: "#ffff00", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
+          <View style={{width: "50%"}}>
+          <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => prompt("hi")}>
+            <Text>Imperical</Text>
+          </TouchableOpacity>
+          </View>
+          <View style={styles.opacityStyleRight}>
+          <TouchableOpacity onPress={() => prompt("hi")}>
+            <Text>Metric</Text>
+          </TouchableOpacity>
+          </View>
+        </View>
       </View>  
       );
   
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: "#f5f5fa",
-  }
+  containerSettings: {
+    marginLeft: 5,
+    marginRight: 5,
+  },
+  opacityStyleLeft: {
+    borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 5,   
+    alignSelf: "center",
+  },
+  opacityStyleRight: {
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5,
+    backgroundColor: "#feee00",
+  },
 });
