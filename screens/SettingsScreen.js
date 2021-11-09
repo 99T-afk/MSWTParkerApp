@@ -6,60 +6,75 @@ export default function SettingsScreen() {
   const [settingConditionTemp, settingUpdateTemp] = useState("Imperial");
   const [settingTheme, settingThemeUpdate] = useState("Light");
 
+  function OnPressHandler(item) {
+    settingUpdateTemp(item);
+    alert("Unfortunately this feature has not yet been implemented in the prototype yet.");
+  };
+
+  function OnPressTheme(theme){
+    settingThemeUpdate(theme);    
+    alert("Unfortunately this feature has not yet been implemented.");
+  };
+
     return (
+      <View>
+      <View>
+        <Text style={styles.titleStyle}>Display units in:</Text>
+      
       <View style={styles.containerSettings}>
             <View style={[styles.container, {
       // Try setting `flexDirection` to `"row"`.
       flexDirection: "row"
-    }]}>
-      <View style={styles.opacityStyle, { flex: 1, height: 60 }, settingConditionTemp == "Metric" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}}>
-      <TouchableOpacity style={{height:"100%"}} onPress={() => settingUpdateTemp("Imperial")}>
+      }]}>
+              
+      <View style={styles.outerBoxStyle}>
+      <View style={styles.opacityStyle, { flex: 1, height: 50 }, settingConditionTemp == "Metric" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}}>
+      <TouchableOpacity item="Imperial" style={{height:"100%"}} onPress={() => settingUpdateTemp("Imperial")}>
       <Text style={styles.textStyle}>Imperial</Text>
       </TouchableOpacity>
       </View>
-      <View style={styles.opacityStyle, { flex: 1, height: 60, }, settingConditionTemp == "Imperial" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}} >
-      <TouchableOpacity style={{height:"100%"}} onPress={() => settingUpdateTemp("Metric")}>
+      <View style={styles.opacityStyle, { flex: 1, height: 50, }, settingConditionTemp == "Imperial" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}} >
+      <TouchableOpacity item="Metric" style={{height:"100%"}} onPress={() => settingUpdateTemp("Metric")}>
       <Text style={styles.textStyle}>Metric</Text>
       </TouchableOpacity>
       </View>
-    </View>
+      </View>
+      </View>
 
-
-
-        <Text style={styles.titleStyle}>Display units in:</Text>
-        <View style={[styles.container, {
+     
+      </View> 
+      </View> 
+      <View style={{padding: 50}}></View>
+      <View>
+        <Text style={styles.titleStyle}>Select the theme:</Text>
+      
+      <View style={styles.containerSettings}>
+            <View style={[styles.container, {
       // Try setting `flexDirection` to `"row"`.
       flexDirection: "row"
-    }]}>
-          <View style={styles.opacityStyle, { flex: 1, height: 60 },  settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#54c3ff'}}>
-              <TouchableOpacity style={{backgroundColor: "pink"}} onPress={() => settingUpdateTemp("Imperial")}>
-                <Text style={styles.textStyle}>Imperial</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.opacityStyle, { flex: 1, height: 60 }, settingConditionTemp == "Metric" ? {backgroundColor: '#54c3ff'} : {backgroundColor: '#fff'}}>
-              <TouchableOpacity  onPress={() => settingUpdateTemp("Metric")}>
-                <Text style={styles.textStyle}>Metric</Text>
-              </TouchableOpacity>
-            </View>
-        </View>
+      }]}>
+              
+      <View style={styles.outerBoxStyle}>
+      <View style={styles.opacityStyle, { flex: 1, height: 50 }, settingTheme == "Dark" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}}>
+      <TouchableOpacity theme="Light" style={{height:"100%"}} onPress={() => settingThemeUpdate("Light")}>
+      <Text style={styles.textStyle}>Light</Text>
+      </TouchableOpacity>
+      </View>
+      <View style={styles.opacityStyle, { flex: 1, height: 50, }, settingTheme == "Light" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}} >
+      <TouchableOpacity theme="Dark" style={{height:"100%"}} onPress={(theme) => settingThemeUpdate("Dark")}>
+      <Text style={styles.textStyle}>Dark</Text>
+      </TouchableOpacity>
+      </View>
+      </View>
+      </View>
 
+     
+      </View> 
+      </View> 
 
-        <Text style={styles.titleStyle}>App color scheme:</Text>
-        <View style={{ backgroundColor: "#ff3333", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
-          <View style={{width: "50%"}}>
-          <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => settingThemeUpdate("Light")}>
-            <Text style={styles.textStyle}>Light</Text>
-          </TouchableOpacity>
-          </View>
-          <View style={ {backgroundColor: "#ff3333"}, styles.opacityStyleRight}>
-          <TouchableOpacity onPress={() => settingThemeUpdate("Dark")}>
-            <Text style={styles.textStyle}>Dark</Text>
-          </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.outerBoxStyle}>
-        </View>
-      </View>  
+      </View>
+
+      
       );
   
 }
@@ -67,7 +82,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 15,
   },
   containerSettings: {
     marginLeft: 5,
@@ -79,7 +94,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderWidth: 3, 
     borderRadius: 5,
-    height: 60,
+    height: 66,
     width: "100%"
   },
   opacityStyle: {
@@ -87,15 +102,17 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5,
     alignSelf: "center",
     justifyContent: "center",
-    height: 60
+    height: 53
   },
   titleStyle: {
     marginTop: 3, 
     fontSize: 20, 
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginLeft: 5,
   },
   textStyle: {
     textAlign: "center",
     fontSize: 20,
+    marginTop: 15,
   }
 });
