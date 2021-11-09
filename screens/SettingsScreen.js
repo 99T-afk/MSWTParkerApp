@@ -8,14 +8,39 @@ export default function SettingsScreen() {
 
     return (
       <View style={styles.containerSettings}>
+            <View style={[styles.container, {
+      // Try setting `flexDirection` to `"row"`.
+      flexDirection: "row"
+    }]}>
+      <View style={styles.opacityStyle, { flex: 1, height: 60 }, settingConditionTemp == "Metric" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}}>
+      <TouchableOpacity style={{height:"100%"}} onPress={() => settingUpdateTemp("Imperial")}>
+      <Text style={styles.textStyle}>Imperial</Text>
+      </TouchableOpacity>
+      </View>
+      <View style={styles.opacityStyle, { flex: 1, height: 60, }, settingConditionTemp == "Imperial" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}} >
+      <TouchableOpacity style={{height:"100%"}} onPress={() => settingUpdateTemp("Metric")}>
+      <Text style={styles.textStyle}>Metric</Text>
+      </TouchableOpacity>
+      </View>
+    </View>
+
+
+
         <Text style={styles.titleStyle}>Display units in:</Text>
-        <View style={styles.outerBoxStyle}>
-          <TouchableOpacity style={{width:50}, settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#54c3ff'}} onPress={() => settingUpdateTemp("Imperial")}>
-            <Text style={styles.textStyle}>Imperial</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.opacityStyleRight, settingConditionTemp == "Metric" ? {backgroundColor: '#54c3ff'} : {backgroundColor: '#fff'}} onPress={() => settingUpdateTemp("Metric")}>
-            <Text style={styles.textStyle}>Metric</Text>
-          </TouchableOpacity>
+        <View style={[styles.container, {
+      // Try setting `flexDirection` to `"row"`.
+      flexDirection: "row"
+    }]}>
+          <View style={styles.opacityStyle, { flex: 1, height: 60 },  settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#54c3ff'}}>
+              <TouchableOpacity style={{backgroundColor: "pink"}} onPress={() => settingUpdateTemp("Imperial")}>
+                <Text style={styles.textStyle}>Imperial</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.opacityStyle, { flex: 1, height: 60 }, settingConditionTemp == "Metric" ? {backgroundColor: '#54c3ff'} : {backgroundColor: '#fff'}}>
+              <TouchableOpacity  onPress={() => settingUpdateTemp("Metric")}>
+                <Text style={styles.textStyle}>Metric</Text>
+              </TouchableOpacity>
+            </View>
         </View>
 
 
@@ -40,9 +65,14 @@ export default function SettingsScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
   containerSettings: {
     marginLeft: 5,
     marginRight: 5,
+    flex: 1
   },
   outerBoxStyle: {
     backgroundColor: "#fffefc", 
@@ -50,17 +80,14 @@ const styles = StyleSheet.create({
     borderWidth: 3, 
     borderRadius: 5,
     height: 60,
+    width: "100%"
   },
-  opacityStyleLeft: {
-    alignSelf: "center",
-    justifyContent: "center",
-    width: 100,
-  },
-  opacityStyleRight: {
+  opacityStyle: {
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
     alignSelf: "center",
-    width: "50%",
+    justifyContent: "center",
+    height: 60
   },
   titleStyle: {
     marginTop: 3, 

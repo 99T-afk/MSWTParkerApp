@@ -19,11 +19,13 @@ import SpotScreen from './screens/SpotScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import FavouriteScreen from './screens/FavouriteScreen';
 import MediaScreen from './screens/MediaScreen';
-import { AntDesign } from '@expo/vector-icons'; 
+import LiveWeatherSelectScreen from './screens/LiveWeatherSelectScreen';
+import { AntDesign, Fontisto } from '@expo/vector-icons'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Context } from "./components/Context.js";
 import TopBar from './components/TopBar';
+import WeatherScreen from './screens/WeatherScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -44,13 +46,14 @@ function MyTabs() {
         component={HomeScreen} />     
       <Tab.Screen
         options={{
-        tabBarLabel: 'Favourites',
+        headerShown: false,
+        tabBarLabel: 'Live Weather',
         tabBarIcon: ({ color, size }) => (
-          <AntDesign name="staro" size={24} color="black" />
+          <Fontisto name="day-cloudy" size={24} color="black" />
           ),
           }}
-        name="Favourites"
-        component={FavouriteScreen} />
+        name="LiveWeather"
+        component={LiveWeatherSelectScreen} />
       <Tab.Screen
         options={{
         tabBarLabel: 'Media',
@@ -81,6 +84,11 @@ const StackNav = () => {
         <SpotStack.Screen
           name="SettingsScreen"
           component={SettingsScreen}
+          options={{headerShown: false,marginTop: StatusBar.currentHeight || 0,}}
+        />
+        <SpotStack.Screen
+          name="WeatherScreen"
+          component={WeatherScreen}
           options={{headerShown: false,marginTop: StatusBar.currentHeight || 0,}}
         />
   </SpotStack.Navigator>

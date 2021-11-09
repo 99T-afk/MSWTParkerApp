@@ -7,8 +7,8 @@ export default function MediaScreen() {
     return (
       <ScrollView style={styles.boundingBox} persistentScrollbar={true}>
         <MediaLargeBox id={1} bodyText={"We look at the top rated spots in the UK...."} titleText={"Our top rated spots in the UK!"} />
-        <MediaWideBox id={2}bodyText={"They may look cuddly, but can they be trusted?"} titleText={"Jellyfish - Friend or foe?"} />
-        <MediaWideBox id={3}bodyText={"Grab yourself a lost soul at a cut price!"} titleText={"Top tips for Davy Jones' lost and found"} />
+        <MediaWideBox id={2} bodyText={"They may look cuddly, but can they be trusted?"} titleText={"Jellyfish - Friend or foe?"} />
+        <MediaWideBox id={3} bodyText={"Grab yourself a lost soul at a cut price!"} titleText={"Top tips for Davy Jones' lost and found"} />
         <MediaLargeBox id={4} bodyText={"Seagulls are not real, please wake up"} titleText={"It may already be too late..."} />
       </ScrollView>
     );
