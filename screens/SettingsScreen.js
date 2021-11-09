@@ -3,36 +3,32 @@ import {StyleSheet, Text, View} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function SettingsScreen() {
-  const [settingConditionTemp, settingUpdateTemp] = useState("Imperical");
+  const [settingConditionTemp, settingUpdateTemp] = useState("Imperial");
   const [settingTheme, settingThemeUpdate] = useState("Light");
 
     return (
       <View style={styles.containerSettings}>
-        <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>Display units in:</Text>
-        <View style={{ backgroundColor: "#fffefc", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
-          <View style={styles.opacityStyleLeft}>
-          <TouchableOpacity style={settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#b43ad6'}} onPress={() => settingUpdateTemp("Imperical")}>
-            <Text>Imperical</Text>
+        <Text style={styles.titleStyle}>Display units in:</Text>
+        <View style={styles.outerBoxStyle}>
+          <TouchableOpacity style={styles.opacityStyleLeft, settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#54c3ff'}} onPress={() => settingUpdateTemp("Imperial")}>
+            <Text style={styles.textStyle}>Imperial</Text>
           </TouchableOpacity>
-          </View>
-          <View style={styles.opacityStyleRight}>
-          <TouchableOpacity onPress={() => settingUpdateTemp("Metric")}>
-            <Text style={settingConditionTemp == "Metric" ? {backgroundColor: '#b43ad6'} : {backgroundColor: '#fff'}}>Metric</Text>
+          <TouchableOpacity style={styles.opacityStyleRight, settingConditionTemp == "Metric" ? {backgroundColor: '#54c3ff'} : {backgroundColor: '#fff'}} onPress={() => settingUpdateTemp("Metric")}>
+            <Text style={styles.textStyle}>Metric</Text>
           </TouchableOpacity>
-          </View>
         </View>
 
 
-        <Text style={{marginTop: 3, fontSize: 20, fontWeight: "bold"}}>App color scheme:</Text>
-        <View style={{ backgroundColor: "#ffff00", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
+        <Text style={styles.titleStyle}>App color scheme:</Text>
+        <View style={{ backgroundColor: "#ff3333", flexDirection: "row", height: 50,borderWidth: 3, borderRadius: 5}}>
           <View style={{width: "50%"}}>
           <TouchableOpacity style={styles.opacityStyleLeft} onPress={() => settingThemeUpdate("Light")}>
-            <Text>Light</Text>
+            <Text style={styles.textStyle}>Light</Text>
           </TouchableOpacity>
           </View>
-          <View style={styles.opacityStyleRight}>
+          <View style={ {backgroundColor: "#ff3333"}, styles.opacityStyleRight}>
           <TouchableOpacity onPress={() => settingThemeUpdate("Dark")}>
-            <Text>Dark</Text>
+            <Text style={styles.textStyle}>Dark</Text>
           </TouchableOpacity>
           </View>
         </View>
@@ -46,15 +42,31 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
   },
+  outerBoxStyle: {
+    backgroundColor: "#fffefc", 
+    flexDirection: "row",
+    borderWidth: 3, 
+    borderRadius: 5,
+    height: 60,
+  },
   opacityStyleLeft: {
-    borderTopLeftRadius: 5,
-    borderBottomLeftRadius: 5,   
     alignSelf: "center",
-    borderBottomWidth: "50%",
-    width: "50%",
+    justifyContent: "center",
+    width: 100,
   },
   opacityStyleRight: {
     borderTopRightRadius: 5,
-    borderBottomRightRadius: 5
+    borderBottomRightRadius: 5,
+    alignSelf: "center",
+    width: "50%",
   },
+  titleStyle: {
+    marginTop: 3, 
+    fontSize: 20, 
+    fontWeight: "bold"
+  },
+  textStyle: {
+    textAlign: "center",
+    fontSize: 20,
+  }
 });
