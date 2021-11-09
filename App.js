@@ -18,6 +18,7 @@ import HomeScreen from './screens/HomeScreen';
 import SpotScreen from './screens/SpotScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import FavouriteScreen from './screens/FavouriteScreen';
+import MediaScreen from './screens/MediaScreen';
 import { AntDesign } from '@expo/vector-icons'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -50,6 +51,16 @@ function MyTabs() {
           }}
         name="Favourites"
         component={FavouriteScreen} />
+      <Tab.Screen
+        options={{
+        tabBarLabel: 'Media',
+        headerShown: false,
+        tabBarIcon: ({ color, size }) => (
+          <AntDesign name="picture" size={24} color="black" />
+          ),
+          }}
+        name="Media"
+        component={MediaScreen} />
     </Tab.Navigator>
   );
 }

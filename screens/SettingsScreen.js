@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function SettingsScreen() {
@@ -10,7 +10,7 @@ export default function SettingsScreen() {
       <View style={styles.containerSettings}>
         <Text style={styles.titleStyle}>Display units in:</Text>
         <View style={styles.outerBoxStyle}>
-          <TouchableOpacity style={styles.opacityStyleLeft, settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#54c3ff'}} onPress={() => settingUpdateTemp("Imperial")}>
+          <TouchableOpacity style={{width:50}, settingConditionTemp == "Metric" ? {backgroundColor: '#fff'} : {backgroundColor: '#54c3ff'}} onPress={() => settingUpdateTemp("Imperial")}>
             <Text style={styles.textStyle}>Imperial</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.opacityStyleRight, settingConditionTemp == "Metric" ? {backgroundColor: '#54c3ff'} : {backgroundColor: '#fff'}} onPress={() => settingUpdateTemp("Metric")}>
@@ -31,6 +31,8 @@ export default function SettingsScreen() {
             <Text style={styles.textStyle}>Dark</Text>
           </TouchableOpacity>
           </View>
+        </View>
+        <View style={styles.outerBoxStyle}>
         </View>
       </View>  
       );
