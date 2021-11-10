@@ -27,7 +27,6 @@ export default function WeatherScreen(){
 
     const WeatherRow = (props) => {
       let outsideConditions = "cloudy"
-      console.log(props.weatherCondition);
       switch (props.weatherCondition) {
         case "Rain":
           outsideConditions = "rains";
@@ -50,9 +49,9 @@ export default function WeatherScreen(){
       }
       return(
           <View style={styles.rowWeatherBox}>
-            <Text>{props.dt}</Text>
-            <Text>{props.temp}°C</Text>
-            <Text>{props.wind_speed} kph</Text>
+            <Text style={styles.rowWeatherText}>{props.dt}</Text>
+            <Text style={styles.rowWeatherText}>{props.temp}°C</Text>
+            <Text style={styles.rowWeatherText}>{props.wind_speed} kph</Text>
             <Fontisto name={outsideConditions} size={24} color="black" />
           </View>
       )
@@ -67,8 +66,8 @@ export default function WeatherScreen(){
       let element = <WeatherRow
       key={index}
       dt={ new Date(weatherArr["hourly"][index]["dt"] * 1000).getHours()}
-      temp={weatherArr["hourly"][index]["temp"]}
-      wind_speed={weatherArr["hourly"][index]["wind_speed"]}
+      temp={ Math.trunc(weatherArr["hourly"][index]["temp"])}
+      wind_speed={ Math.trunc(weatherArr["hourly"][index]["wind_speed"])}
 
       weatherCondition={weatherArr["hourly"][index]["weather"][0]["main"]}
       />
@@ -79,13 +78,13 @@ export default function WeatherScreen(){
 
 
   return(
-    <View>
-      <Text style={styles.titleStyle}>{context.name}</Text>
+    <View style={styles.weatherScreenPage}>
+      <Text style={styles.titleText}>{context.name}</Text>
       <View style={styles.headingStyle}>
-        <Text>Time (24hr)</Text>
-        <Text>Temp.</Text>
-        <Text>Wind Speed</Text>
-        <Text>Conditions</Text>
+        <Text style={styles.headingText}>Time (24hr)</Text>
+        <Text style={styles.headingText}>Temp.</Text>
+        <Text style={styles.headingText}>Wind Speed</Text>
+        <Text style={styles.headingText}>Conditions</Text>
       </View>
       <ScrollView>
         <View style={styles.scrollContainer}>
@@ -97,30 +96,40 @@ export default function WeatherScreen(){
 }
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    marginBottom: 50,
+  weatherScreenPage: {
+    backgroundColor: "#f8f8f8",
   },
-  titleStyle: {
+  scrollContainer: {
+    marginBottom: 70,
+  },
+  titleText: {
     fontSize: 25,
     alignSelf:"center",
+    fontWeight: "bold",
   },
   headingStyle:{
     flexDirection: "row",
-    justifyContent: "space-evenly",
-    fontWeight: "bold"
+    justifyContent: "space-evenly",  
+  },
+  headingText:{
+    fontSize: 18,
+    fontWeight: "bold",
   },
   rowWeatherBox: {
-    flex: 1,
+    height: 50,
     padding: 5,
-    marginVertical: 3,
     marginHorizontal: 10,
+    paddingHorizontal: 30,
     borderRadius: 4,
-    height: "10%",
     marginBottom: 5,
-    borderWidth: 3,
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
+    backgroundColor: "#d7f3ff",
+    alignItems: "center",
   },
+  rowWeatherText: {
+    fontSize: 18,
+  }
 })
 
 
