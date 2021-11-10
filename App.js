@@ -20,7 +20,7 @@ import SettingsScreen from './screens/SettingsScreen';
 import FavouriteScreen from './screens/FavouriteScreen';
 import MediaScreen from './screens/MediaScreen';
 import LiveWeatherSelectScreen from './screens/LiveWeatherSelectScreen';
-import { AntDesign, Fontisto } from '@expo/vector-icons'; 
+import { AntDesign, Fontisto, Feather } from '@expo/vector-icons'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Context } from "./components/Context.js";
@@ -40,6 +40,9 @@ function MyTabs() {
     inactiveColor="#000000"
     tabBarPosition="bottom"
     barStyle={{ backgroundColor: "#54c3ff" }}
+    screenOptions={{
+      tabBarItemStyle: { height: 60 },
+    }}
     >
       <Tab.Screen
         options={{
@@ -56,7 +59,7 @@ function MyTabs() {
         headerShown: false,
         tabBarLabel: 'Live Weather',
         tabBarIcon: ({ color, size }) => (
-          <Fontisto name="day-cloudy" size={24} color="black" />
+          <Feather name="sun" size={24} color="black" />
           ),
           }}
         name="LiveWeather"

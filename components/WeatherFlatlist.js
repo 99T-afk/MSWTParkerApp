@@ -52,8 +52,7 @@ const WeatherFlatList = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-        <Text>Live Weather - Live weather data provided from OpenWeatherAPI.</Text>
+    <View style={styles.container}>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -61,7 +60,7 @@ const WeatherFlatList = () => {
         extraData={selectedId}
         persistentScrollbar={true}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -69,7 +68,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#f7fbff",
     paddingTop: 5,
-    height: "50%"
+    borderRadius: 5,
+    marginBottom: 160,
   },
   item: {
     flex: 1,
