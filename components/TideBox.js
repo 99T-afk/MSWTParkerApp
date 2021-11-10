@@ -55,7 +55,6 @@ export default function TideBox(props){
 
 const styles = StyleSheet.create({
     tideContainer: {
-        backgroundColor: "#cdfeff",
         borderRadius: 5,
         padding: 5,
     },

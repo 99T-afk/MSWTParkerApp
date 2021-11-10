@@ -15,8 +15,7 @@ export default function SpotScreen() {
     return (
       <View style={styles.pageStyle}>   
       <View style={{flexDirection: "row", alignItems: "center", justifyContent:"center"}}>
-        <Text style={styles.titleStyle}>{context.name}</Text>
-        <Text style={{fontSize: 17}}>  - {MSWdata[daySet]["day"]}</Text>
+        <Text style={styles.titleStyle}>{context.name} - {MSWdata[daySet]["day"]}</Text>
         </View>  
         <View style={{marginRight: 5, marginLeft: 5}}>
             <View style={styles.compass}>
@@ -44,8 +43,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   titleStyle: {
-    fontSize: 25,
+    fontSize: 24,
     alignSelf:"center",
+    margin: 3,
   },
   weatherGrid: {
     backgroundColor: "#000",

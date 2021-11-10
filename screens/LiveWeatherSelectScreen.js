@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   weatherInfoText: {
     fontSize: 15,
-    alignSelf: "center"
+    alignSelf: "center",
+    textAlign: "center"
   }
 })

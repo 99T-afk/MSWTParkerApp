@@ -15,7 +15,7 @@ export default function SwellCompass(props) {
 
     return (
       <View style={styles.backC}>
-        <Text style={styles.swellTitle}>Swell:</Text>
+        <Text style={styles.swellTitle}>Swell</Text>
         <Image style={{transform: [{ scale: 0.6 },{translateY:(compassSize / 2)- 35},{translateX:(compassSize / 2) + 35},{ rotate: directData + "deg"}]}} source={require("../assets/compass.png")} />        
         <Text style={styles.swellText}>{directData + "° | " + swellCompassDirection}</Text>      
         <Text style={styles.swellText}>{swellDataHeight + " @ " + swellDataPeriod + "s"}</Text> 

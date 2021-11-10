@@ -105,14 +105,14 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 25,
     alignSelf:"center",
-    fontWeight: "bold",
   },
   headingStyle:{
     flexDirection: "row",
     justifyContent: "space-evenly",  
+    marginBottom: 6,
   },
   headingText:{
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
   },
   rowWeatherBox: {

@@ -15,7 +15,7 @@ export default function WindCompass(props) {
 
     return (
       <View style={styles.back}>
-          <Text style={styles.windTitle}>Wind:</Text>
+          <Text style={styles.windTitle}>Wind</Text>
           <Image style={{transform: [{ scale: 0.60 },{translateY:(compassSize / 2)- 35},{translateX:(compassSize / 2) + 35},{ rotate: directData + "deg"}]}} source={require("../assets/compass.png")} />        
           <Text style={styles.windTextDirect}>{directData + "° | " + directDataCompass}</Text>      
           <Text style={styles.windTextSpeed}>{speedData + " mph"}</Text> 
