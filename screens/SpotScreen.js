@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5fa",
   },
   compass: {
-    marginBottom: 5,
+    marginBottom: 7,
     height: "29%",
     flexDirection: "row", 
   },

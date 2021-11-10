@@ -6,15 +6,6 @@ export default function SettingsScreen() {
   const [settingConditionTemp, settingUpdateTemp] = useState("Imperial");
   const [settingTheme, settingThemeUpdate] = useState("Light");
 
-  function OnPressHandler(item) {
-    settingUpdateTemp(item);
-    alert("Unfortunately this feature has not yet been implemented in the prototype yet.");
-  };
-
-  function OnPressTheme(theme){
-    settingThemeUpdate(theme);    
-    alert("Unfortunately this feature has not yet been implemented.");
-  };
 
     return (
       <View>
@@ -29,12 +20,13 @@ export default function SettingsScreen() {
               
       <View style={styles.outerBoxStyle}>
       <View style={styles.opacityStyle, { flex: 1, height: 50 }, settingConditionTemp == "Metric" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}}>
-      <TouchableOpacity item="Imperial" style={{height:"100%"}} onPress={() => settingUpdateTemp("Imperial")}>
+      <TouchableOpacity item="Imperial" style={{height:"100%"}} onPress={() => {settingUpdateTemp("Imperial")}}>
       <Text style={styles.textStyle}>Imperial</Text>
       </TouchableOpacity>
       </View>
       <View style={styles.opacityStyle, { flex: 1, height: 50, }, settingConditionTemp == "Imperial" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}} >
-      <TouchableOpacity item="Metric" style={{height:"100%"}} onPress={() => settingUpdateTemp("Metric")}>
+      <TouchableOpacity item="Metric" style={{height:"100%"}} onPress={() => { alert("Unfortunately this feature has not yet been implemented.");
+        settingUpdateTemp("Metric")}}>
       <Text style={styles.textStyle}>Metric</Text>
       </TouchableOpacity>
       </View>
@@ -56,12 +48,13 @@ export default function SettingsScreen() {
               
       <View style={styles.outerBoxStyle}>
       <View style={styles.opacityStyle, { flex: 1, height: 50 }, settingTheme == "Dark" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}}>
-      <TouchableOpacity theme="Light" style={{height:"100%"}} onPress={() => settingThemeUpdate("Light")}>
+      <TouchableOpacity theme="Light" style={{height:"100%"}} onPress={() => {settingThemeUpdate("Light")}}>
       <Text style={styles.textStyle}>Light</Text>
       </TouchableOpacity>
       </View>
       <View style={styles.opacityStyle, { flex: 1, height: 50, }, settingTheme == "Light" ? {backgroundColor: '#fff', flex: 1, height:60} : {backgroundColor: '#54c3ff', flex: 1, height: 60}} >
-      <TouchableOpacity theme="Dark" style={{height:"100%"}} onPress={(theme) => settingThemeUpdate("Dark")}>
+      <TouchableOpacity theme="Dark" style={{height:"100%"}} onPress={(theme) => { alert("Unfortunately this feature has not yet been implemented.");
+        settingThemeUpdate("Dark")}}>
       <Text style={styles.textStyle}>Dark</Text>
       </TouchableOpacity>
       </View>

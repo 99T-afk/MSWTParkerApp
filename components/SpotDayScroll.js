@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     dayScroll: {
         backgroundColor: "#54c3ff", 
         borderRadius: 5,     
-        marginBottom: 5,
+        marginBottom: 7,
+        elevation: 5,
     },
     dayTextStyle: {
         alignItems: "center",  

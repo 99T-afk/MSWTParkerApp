@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../components/Context.js";
 import { Text, View, StyleSheet, ScrollView, FlatList } from 'react-native';
+import { Fontisto } from '@expo/vector-icons';
 
 
 
@@ -22,15 +23,43 @@ export default function WeatherScreen(){
         })
       }
 
+
+
     const WeatherRow = (props) => {
+      let outsideConditions = "cloudy"
+      console.log(props.weatherCondition);
+      switch (props.weatherCondition) {
+        case "Rain":
+          outsideConditions = "rains";
+          break;
+        case "Clouds":
+          outsideConditions = "cloudy";
+          break;
+        case "Clear":
+          outsideConditions = "day-sunny";
+          break;
+        case "Snow":
+          outsideConditions = "snow";
+          break;
+        case "Drizzle":
+          outsideConditions = "rain";
+          break;
+        default:
+          outsideConditions = "cloudy";
+          break;
+      }
       return(
           <View style={styles.rowWeatherBox}>
             <Text>{props.dt}</Text>
-            <Text>{props.temp}</Text>
-            <Text>{props.wind_speed}</Text>
+            <Text>{props.temp}°C</Text>
+            <Text>{props.wind_speed} kph</Text>
+            <Fontisto name={outsideConditions} size={24} color="black" />
           </View>
       )
     };
+
+
+
 
   const WeatherGrid = (weatherArr) => {
     let weatherList = [];
@@ -40,6 +69,7 @@ export default function WeatherScreen(){
       dt={ new Date(weatherArr["hourly"][index]["dt"] * 1000).getHours()}
       temp={weatherArr["hourly"][index]["temp"]}
       wind_speed={weatherArr["hourly"][index]["wind_speed"]}
+
       weatherCondition={weatherArr["hourly"][index]["weather"][0]["main"]}
       />
       weatherList.push(element);
@@ -51,11 +81,16 @@ export default function WeatherScreen(){
   return(
     <View>
       <Text style={styles.titleStyle}>{context.name}</Text>
-    
+      <View style={styles.headingStyle}>
+        <Text>Time (24hr)</Text>
+        <Text>Temp.</Text>
+        <Text>Wind Speed</Text>
+        <Text>Conditions</Text>
+      </View>
       <ScrollView>
         <View style={styles.scrollContainer}>
         {weatherData}
-      </View>      
+        </View>      
     </ScrollView>
     </View>
   )
@@ -63,21 +98,26 @@ export default function WeatherScreen(){
 
 const styles = StyleSheet.create({
   scrollContainer: {
-
+    marginBottom: 50,
   },
   titleStyle: {
     fontSize: 25,
     alignSelf:"center",
   },
+  headingStyle:{
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    fontWeight: "bold"
+  },
   rowWeatherBox: {
     flex: 1,
-    padding: 15,
+    padding: 5,
     marginVertical: 3,
     marginHorizontal: 10,
     borderRadius: 4,
     height: "10%",
     marginBottom: 5,
-    borderWidth: 5,
+    borderWidth: 3,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
