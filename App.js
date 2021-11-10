@@ -26,14 +26,21 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Context } from "./components/Context.js";
 import TopBar from './components/TopBar';
 import WeatherScreen from './screens/WeatherScreen';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 const SpotStack = createNativeStackNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+    activeColor="#fff"
+    inactiveColor="#000000"
+    tabBarPosition="bottom"
+    barStyle={{ backgroundColor: "#54c3ff" }}
+    >
       <Tab.Screen
         options={{
           headerShown: false,
