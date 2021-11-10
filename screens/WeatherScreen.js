@@ -10,7 +10,7 @@ export default function WeatherScreen(){
     let KEY = "08c163596ba8b99ec861254264859f20"; 
 
     useEffect(() => {
-      fetchWeather(50.714003, -1.8767287);
+      fetchWeather(context.lat,context.long);
     },[])
     function fetchWeather(lat, lon) { 
       fetch( 
@@ -23,10 +23,8 @@ export default function WeatherScreen(){
       }
 
     const WeatherRow = (props) => {
-      console.log("Hit weatherrow")
       return(
           <View style={styles.rowWeatherBox}>
-            <Text>hi!</Text>
             <Text>{props.dt}</Text>
             <Text>{props.temp}</Text>
             <Text>{props.wind_speed}</Text>
@@ -39,7 +37,7 @@ export default function WeatherScreen(){
     for (let index = 0; index < 47; index++) {
       let element = <WeatherRow
       key={index}
-      dt={Date(weatherArr["hourly"][index]["dt"]).h}
+      dt={ new Date(weatherArr["hourly"][index]["dt"] * 1000).getHours()}
       temp={weatherArr["hourly"][index]["temp"]}
       wind_speed={weatherArr["hourly"][index]["wind_speed"]}
       weatherCondition={weatherArr["hourly"][index]["weather"][0]["main"]}
@@ -51,16 +49,37 @@ export default function WeatherScreen(){
 
 
   return(
-    <ScrollView>
-      {weatherData}
+    <View>
+      <Text style={styles.titleStyle}>{context.name}</Text>
+    
+      <ScrollView>
+        <View style={styles.scrollContainer}>
+        {weatherData}
+      </View>      
     </ScrollView>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+
+  },
+  titleStyle: {
+    fontSize: 25,
+    alignSelf:"center",
+  },
   rowWeatherBox: {
-    height: 40,
-    backgroundColor: "#ff33ff"
+    flex: 1,
+    padding: 15,
+    marginVertical: 3,
+    marginHorizontal: 10,
+    borderRadius: 4,
+    height: "10%",
+    marginBottom: 5,
+    borderWidth: 5,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
 })
 
