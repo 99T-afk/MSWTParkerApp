@@ -29,7 +29,7 @@ const WeatherFlatList = () => {
   const [context, setContext] = useContext(Context);
 
   function OnItemPressHandle(item){
-    console.log("item object: " + item.name )
+    //console.log("item object: " + item.name )
     setContext(item);
     navigation.navigate('WeatherScreen');
   }
