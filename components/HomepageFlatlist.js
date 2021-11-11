@@ -48,13 +48,20 @@ const HomepageFlatlist = () => {
   const navigation = useNavigation();
   const [context, setContext] = useContext(Context);
 
-  //Function that handles the onpress for the item, navigating the user.
+  /**
+   * A function that handles updating the global context and changing the navigation 
+   * @param {*} item object that contains data on the location tapped
+   */
   function OnPressHandle(item) {
     setContext(item);
     navigation.navigate("SpotScreen");
   }
 
-  //Function that renders a single row on the flatlist.
+  /**
+   * renderItem function that initialises the render of the Item component.
+   * @param {*} item prop that holds data on the location tapped
+   * @returns an item component inside a view
+   */
   const renderItem = ({ item }) => {
     const backgroundColor = "#ebecef";
     const color = "black";

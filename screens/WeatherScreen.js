@@ -15,7 +15,9 @@ export default function WeatherScreen() {
   const [weatherData, weatherDataUpdate] = useState();
   let KEY = "08c163596ba8b99ec861254264859f20";
 
-  //useEffect controls the asynchronous access of the API
+  /**
+   * useEffect controls the asynchronous access of the API
+   */
   useEffect(() => {
     fetchWeather(context.lat, context.long);
   }, []);

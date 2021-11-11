@@ -5,7 +5,6 @@ import * as React from "react";
 import {
   View,
   StyleSheet,
-  ScrollView,
   Image,
   TouchableOpacity,
 } from "react-native";

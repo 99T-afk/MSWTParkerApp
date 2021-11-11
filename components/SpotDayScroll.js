@@ -16,17 +16,27 @@ const SpotDayScroll = (props) => {
   // Sets the scroll interval, which allows the bar to "snap" to a date.
   let scrollInterval = 130;
 
-  // Function responsible for positioning or "snapping" the date once selected
+  /**
+   * Function responsible for positioning or "snapping" the date once selected
+   * @param {*} clickedIndex the index of the day passed, indexed at zero
+   */
   const scrollSnap = (clickedIndex) => {
     ScrollRef.current.scrollTo({ x: clickedIndex * scrollInterval });
   };
 
-  // Function that will update the state when a different day is selected.
+  /**
+   * Function that will update the state when a different day is selected.
+   * @param {*} index the index of the day passed, indexed at zero
+   */
   const changeDay = (index) => {
     props.daySetChange(index);
   };
 
-  // Function that calls the day text from the local API and displays it.
+  /**
+   * Function that calls the day text from the local API and displays it.
+   * @param {*} props takes the day index in to be changed
+   * @returns 
+   */
   const ScrollItem = (props) => {
     return (
       <View>
