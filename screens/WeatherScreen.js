@@ -49,7 +49,7 @@ export default function WeatherScreen(){
       }
       return(
           <View style={styles.rowWeatherBox}>
-            <Text style={styles.rowWeatherText}>{props.dt}</Text>
+            <Text style={styles.rowWeatherText}>{props.dt}:00</Text>
             <Text style={styles.rowWeatherText}>{props.temp}°C</Text>
             <Text style={styles.rowWeatherText}>{props.wind_speed} kph</Text>
             <Fontisto name={outsideConditions} size={24} color="black" />

@@ -1,11 +1,14 @@
+/**
+ * @fileoverview - Returns the homescreen, which calls a flatlist component to render.
+ */
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FlatList from '../components/HomepageFlatlist';
 import HomepageFlatList from '../components/HomepageFlatlist';
 
-
+/**
+ * HomeScreen - returns a flatlist component to render.
+ * @returns A HomepageFlatList component.
+ */
 export default function HomeScreen() {
     return (
       <View style={{ flex: 1}}>
