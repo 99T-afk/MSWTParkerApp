@@ -1,8 +1,15 @@
+/**
+ * @fileoverview Renders multiple components that make up the media screen, wrapped in a scrollview.
+ */
 import * as React from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import MediaLargeBox from '../components/MediaLargeBox';
 import MediaWideBox from '../components/MediaWideBox';
 
+/**
+ * MediaScreen function responsible for calling the components to be rendered.
+ * @returns A scrollview containing multiple media components to be rendered.
+ */
 export default function MediaScreen() {
     return (
       <ScrollView style={styles.boundingBox} persistentScrollbar={true}>

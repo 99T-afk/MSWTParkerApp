@@ -1,7 +1,14 @@
+/**
+ * @fileoverview This file renders a settings page.
+ */
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+/**
+ * This page contains the customisable settings for the app - units and theme.
+ * @returns A settings screen that contains 2 switch buttons.
+ */
 export default function SettingsScreen() {
   const [settingConditionTemp, settingUpdateTemp] = useState("Imperial");
   const [settingTheme, settingThemeUpdate] = useState("Light");
@@ -16,7 +23,6 @@ export default function SettingsScreen() {
             style={[
               styles.container,
               {
-                // Try setting `flexDirection` to `"row"`.
                 flexDirection: "row",
               },
             ]}
@@ -76,7 +82,6 @@ export default function SettingsScreen() {
             style={[
               styles.container,
               {
-                // Try setting `flexDirection` to `"row"`.
                 flexDirection: "row",
               },
             ]}

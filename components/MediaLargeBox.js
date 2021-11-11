@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+/**
+ * @fileoverview Renders a "large" media component
+ */
+import React from "react";
 import { StyleSheet, Text, View, Image, TouchableHighlight, ScrollView } from 'react-native';
 
-
+/**
+ * A component that renders a large view.
+ * @param {*} props takes in the ID of the component rendered, which allows a different image to be shown.
+ * @returns A view containing a large image, title and text
+ */
 const LargeMediaBox = (props) => {
     return (
     <TouchableHighlight

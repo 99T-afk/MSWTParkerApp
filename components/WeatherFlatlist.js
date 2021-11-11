@@ -1,53 +1,63 @@
+/**
+ * @fileoverview Gets location data and renders a flatlist.
+ */
 import React, { useState, useContext } from "react";
-import { FlatList, SafeAreaView, SearchBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import getLocations from "./Places";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import { Context } from "../components/Context.js";
-import { AntDesign, Fontisto } from '@expo/vector-icons';
-import WeatherScreen from '../screens/WeatherScreen';
+import { AntDesign } from "@expo/vector-icons";
 
-//console.log(getLocations());
-
-/** Calls data, returns object of locations and their ID */
+// Calls data, returns object of locations and their ID
 let data = getLocations();
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]} >
-  <View>
-    <Text style={[styles.title, textColor]}>{item.name}</Text>
-    <Text style={[styles.smalltext, textColor]}>{item.distance}</Text>
-  </View>
-  <View style={styles.weatherIcon}>  
-    <AntDesign name="right" size={29} color="black" />
-  </View>
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+    <View>
+      <Text style={[styles.title, textColor]}>{item.name}</Text>
+      <Text style={[styles.smalltext, textColor]}>{item.distance}</Text>
+    </View>
+    <View style={styles.weatherIcon}>
+      <AntDesign name="right" size={29} color="black" />
+    </View>
   </TouchableOpacity>
 );
 
+/**
+ * WeatherFlatList - returns a flatlist containing location name and an OnPress method to display
+ * the live weather data screen.
+ * @returns A view containing a flatlist
+ */
 const WeatherFlatList = () => {
   const [selectedId, setSelectedId] = useState(null);
   const navigation = useNavigation();
   const [context, setContext] = useContext(Context);
 
-  function OnItemPressHandle(item){
+  function OnItemPressHandle(item) {
     //console.log("item object: " + item.name )
     setContext(item);
-    navigation.navigate('WeatherScreen');
+    navigation.navigate("WeatherScreen");
   }
 
   const renderItem = ({ item }) => {
     const backgroundColor = "#ebecef";
-    const color = 'black';
+    const color = "black";
 
     return (
-        <View>
-          <Item
-            item={item}
-            onPress={() => OnItemPressHandle(item)}
-            backgroundColor={{ backgroundColor }}
-            textColor={{ color }}
-          />
-        </View>
-      
+      <View>
+        <Item
+          item={item}
+          onPress={() => OnItemPressHandle(item)}
+          backgroundColor={{ backgroundColor }}
+          textColor={{ color }}
+        />
+      </View>
     );
   };
 
@@ -83,7 +93,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     marginBottom: 5,
   },
-  smalltext:{
+  smalltext: {
     fontSize: 12,
   },
   title: {
@@ -92,7 +102,7 @@ const styles = StyleSheet.create({
   weatherIcon: {
     marginRight: "2%",
     marginTop: "2%",
-  }
+  },
 });
 
 export default WeatherFlatList;

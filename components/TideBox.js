@@ -1,27 +1,24 @@
+/**
+ * @fileoverview A view that renders a graph showing tide information.
+ */
 import * as React from "react";
 import {
   Text,
   View,
   StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
 } from "react-native";
 import { Path } from "react-native-svg";
 import {
   AreaChart,
-  Grid,
-  LineChart,
-  YAxis,
   XAxis,
 } from "react-native-svg-charts";
 import * as shape from "d3-shape";
 import TideData from "./TideData.json";
 
 /**
- * JSON file contains 16 hours of data.
- *
- * @returns
+ * 
+ * @param {*} props updates daySet when the user selects another date, re-rendering component.
+ * @returns Tide information in a graph view.
  */
 export default function TideBox(props) {
   const contentInset = { top: 20, bottom: 20 };
@@ -29,6 +26,7 @@ export default function TideBox(props) {
   let highTide = TideData[props.daySet]["high"];
   let lowTide = TideData[props.daySet]["low"];
   const XAxisData = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24];
+
 
   const Line = ({ line }) => (
     <Path key={"line"} d={line} stroke={"rgb(0, 0, 0)"} fill={"none"} />
@@ -63,7 +61,7 @@ export default function TideBox(props) {
 const styles = StyleSheet.create({
   tideContainer: {
     borderRadius: 5,
-    padding: 5,
+    padding: 3,
   },
   tideTitle: {
     fontSize: 23,

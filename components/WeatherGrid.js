@@ -1,40 +1,21 @@
+/**
+ * @fileoverview WeatherGrid renders the surf weather from 3 points in a given day.
+ */
 import React, { useContext, useState } from "react";
 import { Text, View, StyleSheet, FlatList } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 import MSWdata from "./MSWApi.json";
 
-
-
+//sets size of the icon used as a compass.
 let compassSize = 40;
 
-
-
-//renders a grid row
-const Item = () => {
-  return(
-  <View style={styles.rowGrid}>
-    
-  </View>
-  ); 
-}
-
-const MiniCompass = (props) => {
-  return(
-    <View>
-    <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4]["wind"]["direction"] + "deg"}]}} />
-    <Text></Text>
-    </View>
-  ); 
-}
-
-
-export default function WeatherGrid (props){
-  //const renderItem = ({ item }) => {return(<Item/>)};
-  let directData = MSWdata[props.daySet]["wind"]["direction"];
-  console.log(props.daySet);
-  console.log("");
-
-  return(
+/**
+ * WeatherGrid component that returns surf information from 3 points in the day.
+ * @param {*} props
+ * @returns A header and view containing surf information.
+ */
+export default function WeatherGrid(props) {
+  return (
     <View style={styles.weatherBox}>
       <View style={styles.rowTitle}>
         <Text style={styles.textTitleGrid}>Time</Text>
@@ -43,28 +24,109 @@ export default function WeatherGrid (props){
       </View>
       <View style={styles.rowGrid}>
         <Text style={styles.rowText}>6am</Text>
-        <Text style={styles.rowText}>{MSWdata[props.daySet * 4]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet * 4]["swell"]["components"]["combined"]["period"]}s</Text>
+        <Text style={styles.rowText}>
+          {
+            MSWdata[props.daySet * 4]["swell"]["components"]["combined"][
+              "height"
+            ]
+          }{" "}
+          @{" "}
+          {
+            MSWdata[props.daySet * 4]["swell"]["components"]["combined"][
+              "period"
+            ]
+          }
+          s
+        </Text>
         <View>
-        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4]["wind"]["direction"] + "deg"}]}} />       
-        <Text style={styles.textWindDirection}>{MSWdata[props.daySet * 4]["wind"]["compassDirection"]}</Text>
+          <AntDesign
+            name="arrowup"
+            size={compassSize}
+            color="black"
+            style={{
+              transform: [
+                {
+                  rotate:
+                    MSWdata[props.daySet * 4]["wind"]["direction"] + "deg",
+                },
+              ],
+            }}
+          />
+          <Text style={styles.textWindDirection}>
+            {MSWdata[props.daySet * 4]["wind"]["compassDirection"]}
+          </Text>
         </View>
-        </View>
+      </View>
       <View style={styles.rowGrid}>
         <Text style={styles.rowText}>Noon</Text>
-        <Text style={styles.rowText}>{MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"]["period"]}s</Text>
+        <Text style={styles.rowText}>
+          {
+            MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"][
+              "height"
+            ]
+          }{" "}
+          @{" "}
+          {
+            MSWdata[props.daySet * 4 + 2]["swell"]["components"]["combined"][
+              "period"
+            ]
+          }
+          s
+        </Text>
         <View>
-        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4 + 2]["wind"]["direction"] + "deg"}]}} />
-        <Text style={styles.textWindDirection}>{MSWdata[props.daySet * 4 + 2]["wind"]["compassDirection"]}</Text>
-      </View>
+          <AntDesign
+            name="arrowup"
+            size={compassSize}
+            color="black"
+            style={{
+              transform: [
+                {
+                  rotate:
+                    MSWdata[props.daySet * 4 + 2]["wind"]["direction"] + "deg",
+                },
+              ],
+            }}
+          />
+          <Text style={styles.textWindDirection}>
+            {MSWdata[props.daySet * 4 + 2]["wind"]["compassDirection"]}
+          </Text>
+        </View>
       </View>
       <View style={styles.rowGrid}>
         <Text style={styles.rowText}>6pm</Text>
-        <Text style={styles.rowText}>{MSWdata[props.daySet * 4 + 3]["swell"]["components"]["combined"]["height"]} @ {MSWdata[props.daySet  * 4 + 3]["swell"]["components"]["combined"]["period"]}s</Text>
+        <Text style={styles.rowText}>
+          {
+            MSWdata[props.daySet * 4 + 3]["swell"]["components"]["combined"][
+              "height"
+            ]
+          }{" "}
+          @{" "}
+          {
+            MSWdata[props.daySet * 4 + 3]["swell"]["components"]["combined"][
+              "period"
+            ]
+          }
+          s
+        </Text>
         <View>
-        <AntDesign name="arrowup" size={compassSize} color="black" style={{transform: [{ rotate: MSWdata[props.daySet * 4 + 3]["wind"]["direction"] + "deg"}]}} />
-        <Text style={styles.textWindDirection}>{MSWdata[props.daySet * 4 + 3]["wind"]["compassDirection"]}</Text>
+          <AntDesign
+            name="arrowup"
+            size={compassSize}
+            color="black"
+            style={{
+              transform: [
+                {
+                  rotate:
+                    MSWdata[props.daySet * 4 + 3]["wind"]["direction"] + "deg",
+                },
+              ],
+            }}
+          />
+          <Text style={styles.textWindDirection}>
+            {MSWdata[props.daySet * 4 + 3]["wind"]["compassDirection"]}
+          </Text>
+        </View>
       </View>
-    </View>
     </View>
   );
 }
@@ -91,21 +153,11 @@ const styles = StyleSheet.create({
   },
   textTitleGrid: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "black",
   },
   textWindDirection: {
     alignSelf: "center",
     fontSize: 16,
-  }
+  },
 });
-
-/**
- * 
- * <FlatList
-        data={daysIn}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-
- */
