@@ -5,7 +5,6 @@ import React, { useState, useContext } from "react";
 import {
   FlatList,
   SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -16,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Context } from "../components/Context.js";
 import { Fontisto } from "@expo/vector-icons";
 
-/** Calls data, returns object of locations and their ID */
+// Calls data, returns object of locations and their ID
 let data = getLocations();
 
 /**
@@ -49,12 +48,13 @@ const HomepageFlatlist = () => {
   const navigation = useNavigation();
   const [context, setContext] = useContext(Context);
 
+  //Function that handles the onpress for the item, navigating the user.
   function OnPressHandle(item) {
-    console.log("item oject: " + item);
     setContext(item);
     navigation.navigate("SpotScreen");
   }
 
+  //Function that renders a single row on the flatlist.
   const renderItem = ({ item }) => {
     const backgroundColor = "#ebecef";
     const color = "black";

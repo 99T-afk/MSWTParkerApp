@@ -2,7 +2,7 @@
  * @fileoverview - Returns the homescreen, which calls a flatlist component to render.
  */
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import HomepageFlatList from '../components/HomepageFlatlist';
 
 /**

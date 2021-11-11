@@ -39,12 +39,13 @@ const WeatherFlatList = () => {
   const navigation = useNavigation();
   const [context, setContext] = useContext(Context);
 
+  //Handles the OnPress event passed to it, taking in item object (location) and passing to navigation
   function OnItemPressHandle(item) {
-    //console.log("item object: " + item.name )
     setContext(item);
     navigation.navigate("WeatherScreen");
   }
 
+  //Handles rendering the item in the flatlist.
   const renderItem = ({ item }) => {
     const backgroundColor = "#ebecef";
     const color = "black";

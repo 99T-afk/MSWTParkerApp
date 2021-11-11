@@ -2,7 +2,7 @@
  * @fileoverview This file renders a settings page.
  */
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 /**

@@ -15,9 +15,16 @@ export default function WeatherScreen() {
   const [weatherData, weatherDataUpdate] = useState();
   let KEY = "08c163596ba8b99ec861254264859f20";
 
+  //useEffect controls the asynchronous access of the API
   useEffect(() => {
     fetchWeather(context.lat, context.long);
   }, []);
+
+  /**
+   * Function responsible for getting external weather data, returned as a JSON
+   * @param {*} lat the latitude taken from the item (location object) passed in.
+   * @param {*} lon the longtitude taken from the item (location object) passed in.
+   */
   function fetchWeather(lat, lon) {
     fetch(
       `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&APPID=${KEY}&exclude=daily,minutely&units=metric`
@@ -28,6 +35,11 @@ export default function WeatherScreen() {
       });
   }
 
+  /**
+   * This component displays the object taken from the external JSON.
+   * @param {*} props takes in a specific hour from the 48 hour JSON object
+   * @returns A single row view containing an hour of information from the JSON.
+   */
   const WeatherRow = (props) => {
     let outsideConditions = "cloudy";
     switch (props.weatherCondition) {
@@ -60,6 +72,11 @@ export default function WeatherScreen() {
     );
   };
 
+  /**
+   * Responsible for looping through the external API and creating a seperate weatherRow component.
+   * @param {*} weatherArr The external JSON data
+   * @returns 48 instances of the WeatherRow component
+   */
   const WeatherGrid = (weatherArr) => {
     let weatherList = [];
     for (let index = 0; index < 47; index++) {

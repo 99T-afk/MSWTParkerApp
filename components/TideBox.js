@@ -27,7 +27,7 @@ export default function TideBox(props) {
   let lowTide = TideData[props.daySet]["low"];
   const XAxisData = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24];
 
-
+  // Function that defines the line of best fit to be drawn.
   const Line = ({ line }) => (
     <Path key={"line"} d={line} stroke={"rgb(0, 0, 0)"} fill={"none"} />
   );

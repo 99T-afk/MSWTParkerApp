@@ -13,18 +13,20 @@ import MSWdata from "./MSWApi.json";
 const SpotDayScroll = (props) => {
   const ScrollRef = useRef(null);
 
+  // Sets the scroll interval, which allows the bar to "snap" to a date.
   let scrollInterval = 130;
 
+  // Function responsible for positioning or "snapping" the date once selected
   const scrollSnap = (clickedIndex) => {
-    console.log(clickedIndex);
-    console.log(scrollInterval);
     ScrollRef.current.scrollTo({ x: clickedIndex * scrollInterval });
   };
 
+  // Function that will update the state when a different day is selected.
   const changeDay = (index) => {
     props.daySetChange(index);
   };
 
+  // Function that calls the day text from the local API and displays it.
   const ScrollItem = (props) => {
     return (
       <View>

@@ -2,7 +2,7 @@
  * @fileoverview Renders multiple components that make up the media screen, wrapped in a scrollview.
  */
 import * as React from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import MediaLargeBox from '../components/MediaLargeBox';
 import MediaWideBox from '../components/MediaWideBox';
 
